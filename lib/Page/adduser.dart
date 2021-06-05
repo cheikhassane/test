@@ -3,6 +3,7 @@ import 'dart:convert';
 // import 'package:projecttest/PageOne.dart';
 //import 'package:dakar_cafe_express/Page/pagecafe.dart';
 //import 'package:dakar_cafe_express/Page/commande.dart';
+import 'package:dakar_cafe_express/Page/accueil.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
@@ -335,7 +336,7 @@ class _AdduserState extends State<Adduser> {
                     _addUser(
                         ph.text, firt.text, last.text, addr.text, pass.text);
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Login()));
+                        MaterialPageRoute(builder: (context) => Accueil()));
                   }),
               //ButtonWidget(text: 'Adduser', onClicked: () => _addUser()),
 
