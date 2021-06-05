@@ -7,21 +7,27 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'detailcmd.dart';
+import 'mydrawer.dart';
 
 class Machine extends StatefulWidget {
   final String logoP;
   final String nomP;
   final String priceP;
   final String subtitle;
-  final String username;
-  final String level;
+  final String userid;
+  final String idp;
+  final String token;
+  final String category;
+
   Machine(
-      {this.username,
-      this.level,
+      {this.userid,
       this.logoP,
       this.nomP,
       this.priceP,
-      this.subtitle});
+      this.subtitle,
+      this.idp,
+      this.token,
+      this.category});
 
   @override
   _MachineState createState() => _MachineState();
@@ -47,6 +53,14 @@ class _MachineState extends State<Machine> {
       theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 35,
+          backgroundColor: Colors.transparent,
+        ),
+        drawer: new Drawer(
+            child: Mydrawer(
+          userid: widget.userid,
+        )),
         body: Stack(
           children: [
             HomePageBackground(
@@ -194,63 +208,78 @@ class _MachineState extends State<Machine> {
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
                           return ListView.builder(
-                            itemCount: snapshot.data.length,
+                            itemCount: snapshot.data == 0
+                                ? null
+                                : snapshot.data.length,
                             itemBuilder: (context, index) {
-                              final logoP =
-                                  "${snapshot.data[index]["logoProduit"]}";
-                              final nomP =
-                                  "${snapshot.data[index]["nomProduit"]}";
-                              final priceP = "${snapshot.data[index]["prix"]}";
+                              final logoP = "${snapshot.data[index]["image"]}";
+                              final nomP = "${snapshot.data[index]["libelle"]}";
+                              final idp = "${snapshot.data[index]["id"]}";
+                              final priceP = "${snapshot.data[index]["price"]}";
+                              final category =
+                                  "${snapshot.data[index]["category"]}";
                               final subtitle =
-                                  "${snapshot.data[index]["subtitle"]}";
-                              return Card(
-                                color: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: ListTile(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Detailcmd(
-                                                  logoP: logoP,
-                                                  nomP: nomP,
-                                                  priceP: priceP,
-                                                  subtitle: subtitle,
-                                                )));
-                                  },
-                                  leading: Image(
-                                    image: AssetImage("assets/logoa.png"),
-                                    // NetworkImage(
-                                    //     "${snapshot.data[index]["logoProduit"]}"),
-                                    fit: BoxFit.cover,
-                                    height: 50,
-                                    width: 50,
-                                  ),
-                                  title: Text(
-                                    "${snapshot.data[index]["libelle"]}",
-                                    style: TextStyle(
+                                  "${snapshot.data[index]["description"]}";
+                              if (category == "B") {
+                                return Card(
+                                  color: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: ListTile(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Detailcmd(
+                                                    logoP: logoP,
+                                                    nomP: nomP,
+                                                    priceP: priceP,
+                                                    subtitle: subtitle,
+                                                    idp: idp,
+                                                    userid: widget.userid
+                                                        .toString(),
+                                                    token: widget.token,
+                                                  )));
+                                    },
+                                    leading: Image(
+                                      image: AssetImage("assets/logoa.png"),
+                                      // NetworkImage(
+                                      //     "${snapshot.data[index]["logoProduit"]}"),
+                                      fit: BoxFit.cover,
+                                      height: 50,
+                                      width: 50,
+                                    ),
+                                    title: Text(
+                                      "${snapshot.data[index]["libelle"]}",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    subtitle: Text(
+                                      //"${widget.token}",
+                                      "${snapshot.data[index]["description"]}",
+                                      style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  subtitle: Text(
-                                    "${snapshot.data[index]["description"]}",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 12,
-                                      //fontWeight: FontWeight.bold
+                                        fontSize: 12,
+                                        //fontWeight: FontWeight.bold
+                                      ),
+                                    ),
+                                    trailing: Text(
+                                      "${snapshot.data[index]["price"].toString()}F",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold),
                                     ),
                                   ),
-                                  trailing: Text(
-                                    "${snapshot.data[index]["price"].toString()}F",
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                              );
+                                );
+                              } else {
+                                return Text(
+                                  "",
+                                  style: TextStyle(fontSize: 0),
+                                );
+                              }
                             },
                           );
                         } else if (snapshot.hasError) {
