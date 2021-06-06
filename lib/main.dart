@@ -1,4 +1,5 @@
-import 'package:dakar_cafe_express/Page/accueil.dart';
+//import 'package:dakar_cafe_express/Page/accueil.dart';
+import 'package:dakar_cafe_express/Page/homepage.dart';
 import 'package:flutter/material.dart';
 //import "Page/homepage.dart";
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       //title: 'Dakar Café Express',
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
-      home: Accueil(),
+      home: MyHomePage(),
       //MyHomePage(title: 'Dakar Café Express'),
     );
   }

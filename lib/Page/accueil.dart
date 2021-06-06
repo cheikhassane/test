@@ -20,15 +20,18 @@ class Accueil extends StatefulWidget {
   final String idp;
   final String token;
   final String category;
-  Accueil(
-      {this.userid,
-      this.logoP,
-      this.nomP,
-      this.priceP,
-      this.subtitle,
-      this.idp,
-      this.token,
-      this.category});
+  //final String nameuser;
+  Accueil({
+    this.userid,
+    this.logoP,
+    this.nomP,
+    this.priceP,
+    this.subtitle,
+    this.idp,
+    this.token,
+    this.category,
+    //this.nameuser
+  });
 
   @override
   _AccueilState createState() => _AccueilState();
@@ -149,7 +152,10 @@ class _AccueilState extends State<Accueil> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Machine()));
+                                  builder: (context) => Machine(
+                                        userid: widget.userid,
+                                        token: widget.token,
+                                      )));
                         },
                         child: Container(
                             child: Column(children: [
@@ -175,7 +181,9 @@ class _AccueilState extends State<Accueil> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Accessoire()));
+                                  builder: (context) => Accessoire(
+                                      userid: widget.userid,
+                                      token: widget.token)));
                         },
                         child: Container(
                             child: Column(children: [

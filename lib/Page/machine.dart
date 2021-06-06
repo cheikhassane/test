@@ -132,7 +132,9 @@ class _MachineState extends State<Machine> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Accueil()));
+                                  builder: (context) => Accueil(
+                                      userid: widget.userid,
+                                      token: widget.token)));
                         },
                         child: Container(
                             child: Column(children: [
@@ -174,7 +176,9 @@ class _MachineState extends State<Machine> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Accessoire()));
+                                  builder: (context) => Accessoire(
+                                      userid: widget.userid,
+                                      token: widget.token)));
                         },
                         child: Container(
                             child: Column(children: [
