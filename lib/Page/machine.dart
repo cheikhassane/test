@@ -81,7 +81,7 @@ class _MachineState extends State<Machine> {
             ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 80),
+                padding: const EdgeInsets.only(bottom: 162),
                 child: Container(
                   height: 100,
                   color: Colors.red.shade700,
@@ -118,7 +118,7 @@ class _MachineState extends State<Machine> {
             ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 0, top: 100),
+                padding: const EdgeInsets.only(bottom: 0, top: 20),
                 child: Container(
                   height: 90,
                   color: Colors.red.shade900,
@@ -202,7 +202,7 @@ class _MachineState extends State<Machine> {
             ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 500),
+                padding: const EdgeInsets.only(top: 450),
                 child: Container(
                   height: 300,
                   width: 400,

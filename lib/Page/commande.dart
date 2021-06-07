@@ -119,8 +119,18 @@ class _CommandeState extends State<Commande> {
         appBar: AppBar(
           toolbarHeight: 35,
           backgroundColor: Colors.transparent,
+          title: Text("Commande"),
+          centerTitle: true,
+          leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pop(context);
+              }),
         ),
-        drawer: Drawer(child: Mydrawer()),
+        endDrawer: Drawer(
+          child: Mydrawer(),
+          elevation: 10,
+        ),
         body: Stack(
           children: [
             HomePageBackground(
@@ -141,7 +151,7 @@ class _CommandeState extends State<Commande> {
             ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 50),
+                padding: const EdgeInsets.only(bottom: 162),
                 child: Container(
                   height: 100,
                   color: Colors.red.shade700,

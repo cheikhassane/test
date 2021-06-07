@@ -1,8 +1,10 @@
 //import 'package:dakar_cafe_express/Page/background.dart';
 import 'package:flutter/material.dart';
 
+//import 'accueil.dart';
+//import 'adduser.dart';
 import 'commande.dart';
-import 'mydrawer.dart';
+//import 'mydrawer.dart';
 // import 'package:jaayma_mburu/valid_command.dart';
 // import 'package:jaayma_mburu/constants2.dart';
 
@@ -54,7 +56,7 @@ class _DetailcmdState extends State<Detailcmd> {
   @override
   Widget build(BuildContext context) {
     // final productId = widget.idProduct;
-    // final idBoul = widget.selectidBoul;
+    //final name = widget.userid;
     Size size = MediaQuery.of(context).size;
     //final idpro = widget.idp;
     //  user.forEach((f){
@@ -73,7 +75,56 @@ class _DetailcmdState extends State<Detailcmd> {
         actions: [Image(image: AssetImage("assets/logoa.png"))],
         // leading: Image(image: AssetImage("assets/Icone-.png")),
       ),
-      drawer: Drawer(child: Mydrawer(userid: widget.userid)),
+      // drawer: Drawer(
+      //     child: new ListView(
+      //   children: [
+      //     new UserAccountsDrawerHeader(
+      //       accountName: name == null ? null : Text(name),
+      //       accountEmail: Text(""),
+      //       currentAccountPicture: new CircleAvatar(
+      //         backgroundColor: Colors.transparent,
+      //         child: Image(
+      //           image: AssetImage("assets/logoa.png"),
+      //           fit: BoxFit.cover,
+      //           height: 100,
+      //           width: 100,
+      //         ),
+      //         //Text("A"),
+      //       ),
+      //     ),
+      //     // ListTile(
+      //     //   title: Text("Connexion"),
+      //     //   trailing: Icon(Icons.person),
+      //     //   onTap: () {
+      //     //     Navigator.push(
+      //     //         context, MaterialPageRoute(builder: (context) => Login()));
+      //     //   },
+      //     // ),
+      //     ListTile(
+      //       title: Text("Créer compte"),
+      //       trailing: Icon(Icons.add),
+      //       onTap: () {
+      //         // Navigator.of(context).pop();
+      //         // Scaffold.of(context).showSnackBar(new SnackBar(
+      //         //   content: new Text("you click me "),
+      //         //   duration: new Duration(seconds: 4),
+      //         // ));
+      //         Navigator.push(
+      //             context, MaterialPageRoute(builder: (context) => Adduser()));
+      //       },
+      //     ),
+      //     ListTile(
+      //       title: name == null ? Text("Connexion") : Text("Deconnexion"),
+      //       trailing: Icon(Icons.outbox),
+      //       onTap: () {
+      //         Navigator.push(
+      //             context, MaterialPageRoute(builder: (context) => Accueil()));
+      //       },
+      //     ),
+      //   ],
+      // )
+      //     //Mydrawer(userid: widget.userid)
+      //     ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -104,7 +155,8 @@ class _DetailcmdState extends State<Detailcmd> {
                   padding: EdgeInsets.only(left: 16, right: 16, top: 10),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(widget.logoP),
+                      image: AssetImage("assets/logoa.png"),
+                      //NetworkImage(widget.logoP),
                     ),
                   ),
                 )
@@ -294,7 +346,10 @@ class _DetailcmdState extends State<Detailcmd> {
                               },
                               child: Text(
                                 "Commander",
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),

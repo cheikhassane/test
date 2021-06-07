@@ -9,7 +9,7 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 // import 'package:projecttest/PageTwo.dart';
 //import 'package:projecttest/buttonWidget.dart';
-import 'package:dakar_cafe_express/Page/login.dart';
+//import 'package:dakar_cafe_express/Page/login.dart';
 
 //https://67fd26fc2225.ngrok.io/users/ajout
 
@@ -84,7 +84,7 @@ class _AdduserState extends State<Adduser> {
     if (response.statusCode == 201) {
       print("Welcome new user");
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => new Login()));
+          context, MaterialPageRoute(builder: (context) => new Accueil()));
     } else {
       displayDialog(context, "An error Occured",
           "No account was found matching that username and password");

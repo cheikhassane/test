@@ -51,7 +51,7 @@ class _CmdLoginState extends State<CmdLogin> {
                   child: Text("OK",
                       style: TextStyle(
                           color: Colors.black,
-                          fontSize: 12,
+                          fontSize: 15,
                           fontWeight: FontWeight.bold)),
                 )
               ]));
@@ -115,8 +115,15 @@ class _CmdLoginState extends State<CmdLogin> {
         appBar: AppBar(
           toolbarHeight: 35,
           backgroundColor: Colors.transparent,
+          title: Text("Commande"),
+          centerTitle: true,
+          leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pop(context);
+              }),
         ),
-        drawer: Drawer(
+        endDrawer: Drawer(
             child: Mydrawer(
           userid: widget.userid,
         )),
@@ -140,7 +147,7 @@ class _CmdLoginState extends State<CmdLogin> {
             ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 50),
+                padding: const EdgeInsets.only(bottom: 162),
                 child: Container(
                   height: 100,
                   color: Colors.red.shade700,

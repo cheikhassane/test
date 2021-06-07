@@ -83,13 +83,7 @@ class _LoginState extends State<Login> {
     //print('Token: ${token}');
     // data = datauser;
     //response.statusCode == 200
-    if (response.statusCode != 200) {
-      displayDialog(context, "An error Occured",
-          "No account was found matching that username and password");
-      // setState(() {
-      //   msg = "Login Failed";
-      // });
-    } else if (response.statusCode == 200) {
+    if (response.statusCode == 200) {
       print("Welcome admin");
       Navigator.push(
           context,
@@ -102,6 +96,16 @@ class _LoginState extends State<Login> {
                   nomP: widget.nomP,
                   subtitle: widget.subtitle,
                   selectedCounter: widget.selectedCounter)));
+    } else {
+      displayDialog(context, "Vérifier votre saisie",
+          "Nom utilisateur ou mot de passe incorrect");
+      //   if (response.statusCode == 401) {
+      //   displayDialog(context, "Vérifier votre saisie",
+      //       "Nom utilisateur ou mot de passe incorrect");
+      //   // setState(() {
+      //   //   msg = "Login Failed";
+      //   // });
+      // }
     }
     // setState(() {
 
