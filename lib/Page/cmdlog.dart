@@ -116,7 +116,10 @@ class _CmdLoginState extends State<CmdLogin> {
           toolbarHeight: 35,
           backgroundColor: Colors.transparent,
         ),
-        drawer: new Drawer(child: Mydrawer(userid: widget.userid)),
+        drawer: Drawer(
+            child: Mydrawer(
+          userid: widget.userid,
+        )),
         body: Stack(
           children: [
             HomePageBackground(

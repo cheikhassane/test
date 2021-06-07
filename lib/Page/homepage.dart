@@ -1,4 +1,5 @@
 import 'package:dakar_cafe_express/Page/accueil.dart';
+import 'package:dakar_cafe_express/Page/background.dart';
 //import 'package:dakar_cafe_express/Page/login.dart';
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
@@ -32,22 +33,24 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData.dark(),
+        theme: ThemeData.light(),
         debugShowCheckedModeBanner: false,
-        home: new SplashScreen(
-          photoSize: 200.0,
-          seconds: 7,
-          navigateAfterSeconds: new Accueil(),
-          title: new Text(
-            'Bienvenue chez Dakar Café Express',
-            style: new TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0,
-                color: Colors.black),
+        home: Background(
+          child: new SplashScreen(
+            photoSize: 200.0,
+            seconds: 7,
+            navigateAfterSeconds: new Accueil(),
+            title: new Text(
+              'Bienvenue chez Dakar Café Express',
+              style: new TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20.0,
+                  color: Colors.black),
+            ),
+            image: Image(image: AssetImage("assets/logoa.png")),
+            //backgroundColor: Background(Color: Colors.white,),
+            loaderColor: Colors.red,
           ),
-          image: Image(image: AssetImage("assets/logoa.png")),
-          backgroundColor: Colors.white,
-          loaderColor: Colors.red,
         )
         //Scaffold(
         // appBar: AppBar(

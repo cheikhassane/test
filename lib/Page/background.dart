@@ -16,12 +16,17 @@ class Background extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          Image(image: AssetImage("assets/cap1.jpeg")),
+          Image(
+            image: AssetImage("assets/cap1.jpeg"),
+            height: 500,
+            width: 500,
+            fit: BoxFit.cover,
+          ),
           // Positioned(
           //   top: 0,
           //   left: 0,
           //   child: Image.asset(
-          //     "assets/images/main_top.png",
+          //     "assets/cap1.jpeg",
           //     width: size.width * 0.3,
           //   ),
           // ),
@@ -29,7 +34,7 @@ class Background extends StatelessWidget {
           //   bottom: 0,
           //   left: 0,
           //   child: Image.asset(
-          //     "assets/images/main_bottom.png",
+          //     "assets/cap1.jpeg",
           //     width: size.width * 0.2,
           //   ),
           // ),

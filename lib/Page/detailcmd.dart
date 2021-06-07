@@ -1,3 +1,4 @@
+//import 'package:dakar_cafe_express/Page/background.dart';
 import 'package:flutter/material.dart';
 
 import 'commande.dart';
@@ -14,15 +15,18 @@ class Detailcmd extends StatefulWidget {
   final String idpro;
   final String userid;
   final String token;
-  Detailcmd(
-      {this.logoP,
-      this.nomP,
-      this.priceP,
-      this.subtitle,
-      this.idp,
-      this.idpro,
-      this.userid,
-      this.token});
+  final String nameuser;
+  Detailcmd({
+    this.logoP,
+    this.nomP,
+    this.priceP,
+    this.subtitle,
+    this.idp,
+    this.idpro,
+    this.userid,
+    this.token,
+    this.nameuser,
+  });
   @override
   _DetailcmdState createState() => _DetailcmdState();
 }
@@ -69,7 +73,7 @@ class _DetailcmdState extends State<Detailcmd> {
         actions: [Image(image: AssetImage("assets/logoa.png"))],
         // leading: Image(image: AssetImage("assets/Icone-.png")),
       ),
-      drawer: new Drawer(child: Mydrawer(userid: widget.userid)),
+      drawer: Drawer(child: Mydrawer(userid: widget.userid)),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

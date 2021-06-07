@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 class Mydrawer extends StatefulWidget {
   final String userid;
-  //final String nameuser;
-  Mydrawer({this.userid});
+  final String nameuser;
+  Mydrawer({this.userid, this.nameuser});
   @override
   _MydrawerState createState() => _MydrawerState();
 }
@@ -14,11 +14,11 @@ class Mydrawer extends StatefulWidget {
 class _MydrawerState extends State<Mydrawer> {
   @override
   Widget build(BuildContext context) {
-    //final nameuser = widget.userid;
+    final nameuser = widget.userid;
     return new ListView(
       children: [
         new UserAccountsDrawerHeader(
-          accountName: widget.userid == null ? null : Text(widget.userid),
+          accountName: nameuser == null ? null : Text(nameuser),
           accountEmail: Text(""),
           currentAccountPicture: new CircleAvatar(
             backgroundColor: Colors.transparent,
@@ -53,8 +53,7 @@ class _MydrawerState extends State<Mydrawer> {
           },
         ),
         ListTile(
-          title:
-              widget.userid == null ? Text("Connexion") : Text("Deconnexion"),
+          title: nameuser == null ? Text("Connexion") : Text("Deconnexion"),
           trailing: Icon(Icons.outbox),
           onTap: () {
             Navigator.push(
