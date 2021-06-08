@@ -16,6 +16,7 @@ class CmdLogin extends StatefulWidget {
   final int selectedCounter;
   final String nomP;
   final String subtitle;
+  final String logoP;
   CmdLogin(
       {this.idp,
       this.userid,
@@ -23,7 +24,8 @@ class CmdLogin extends StatefulWidget {
       this.sum,
       this.selectedCounter,
       this.nomP,
-      this.subtitle});
+      this.subtitle,
+      this.logoP});
 
   @override
   _CmdLoginState createState() => _CmdLoginState();
@@ -205,8 +207,8 @@ class _CmdLoginState extends State<CmdLogin> {
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold),
                           ),
-                          leading: Image(image: AssetImage("assets/logoa.png")),
-                          subtitle: Text("Description: ${widget.subtitle}",
+                          leading: Image(image: NetworkImage(widget.logoP)),
+                          subtitle: Text("${widget.subtitle}",
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 12,

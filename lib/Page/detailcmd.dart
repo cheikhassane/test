@@ -155,8 +155,8 @@ class _DetailcmdState extends State<Detailcmd> {
                   padding: EdgeInsets.only(left: 16, right: 16, top: 10),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/logoa.png"),
-                      //NetworkImage(widget.logoP),
+                      //image: AssetImage("assets/logoa.png"),
+                      image: NetworkImage(widget.logoP),
                     ),
                   ),
                 )
@@ -342,6 +342,7 @@ class _DetailcmdState extends State<Detailcmd> {
                                           nomP: widget.nomP,
                                           subtitle: widget.subtitle,
                                           selectedCounter: selectedCounter,
+                                          logoP: widget.logoP,
                                         )));
                               },
                               child: Text(

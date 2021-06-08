@@ -19,6 +19,7 @@ class Commande extends StatefulWidget {
   final int selectedCounter;
   final String nomP;
   final String subtitle;
+  final String logoP;
   Commande(
       {this.idp,
       this.userid,
@@ -26,7 +27,8 @@ class Commande extends StatefulWidget {
       this.sum,
       this.selectedCounter,
       this.nomP,
-      this.subtitle});
+      this.subtitle,
+      this.logoP});
 
   @override
   _CommandeState createState() => _CommandeState();
@@ -209,8 +211,8 @@ class _CommandeState extends State<Commande> {
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold),
                           ),
-                          leading: Image(image: AssetImage("assets/logoa.png")),
-                          subtitle: Text("Description: ${widget.subtitle}",
+                          leading: Image(image: NetworkImage(widget.logoP)),
+                          subtitle: Text("${widget.subtitle}",
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 12,
@@ -310,6 +312,7 @@ class _CommandeState extends State<Commande> {
                                           subtitle: widget.subtitle,
                                           selectedCounter:
                                               widget.selectedCounter,
+                                          logoP: widget.logoP,
                                         )),
                               )
                             : Navigator.push(
@@ -324,6 +327,7 @@ class _CommandeState extends State<Commande> {
                                           subtitle: widget.subtitle,
                                           selectedCounter:
                                               widget.selectedCounter,
+                                          logoP: widget.logoP,
                                         )),
                               );
                       }),

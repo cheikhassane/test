@@ -20,6 +20,7 @@ class Login extends StatefulWidget {
   final int selectedCounter;
   final String nomP;
   final String subtitle;
+  final String logoP;
 
   Login(
       {this.idp,
@@ -28,7 +29,8 @@ class Login extends StatefulWidget {
       this.sum,
       this.selectedCounter,
       this.nomP,
-      this.subtitle});
+      this.subtitle,
+      this.logoP});
   @override
   _LoginState createState() => _LoginState();
 }
@@ -89,13 +91,15 @@ class _LoginState extends State<Login> {
           context,
           MaterialPageRoute(
               builder: (context) => new CmdLogin(
-                  token: token,
-                  userid: userid,
-                  idp: widget.idp,
-                  sum: widget.sum,
-                  nomP: widget.nomP,
-                  subtitle: widget.subtitle,
-                  selectedCounter: widget.selectedCounter)));
+                    token: token,
+                    userid: userid,
+                    idp: widget.idp,
+                    sum: widget.sum,
+                    nomP: widget.nomP,
+                    subtitle: widget.subtitle,
+                    selectedCounter: widget.selectedCounter,
+                    logoP: widget.logoP,
+                  )));
     } else {
       displayDialog(context, "Vérifier votre saisie",
           "Nom utilisateur ou mot de passe incorrect");

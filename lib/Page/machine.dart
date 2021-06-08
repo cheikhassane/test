@@ -246,9 +246,9 @@ class _MachineState extends State<Machine> {
                                                   )));
                                     },
                                     leading: Image(
-                                      image: AssetImage("assets/logoa.png"),
-                                      // NetworkImage(
-                                      //     "${snapshot.data[index]["logoProduit"]}"),
+                                      //image: AssetImage("assets/logoa.png"),
+                                      image: NetworkImage(
+                                          "${snapshot.data[index]["image"]}"),
                                       fit: BoxFit.cover,
                                       height: 50,
                                       width: 50,
