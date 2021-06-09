@@ -1,5 +1,4 @@
 import 'dart:convert';
-//import 'package:dakar_cafe_express/Page/accueil.dart';
 import 'package:dakar_cafe_express/Page/adduser.dart';
 import 'package:dakar_cafe_express/Page/buttonWidget.dart';
 import 'package:dakar_cafe_express/Page/cmdlog.dart';
