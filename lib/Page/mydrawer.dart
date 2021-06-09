@@ -18,6 +18,7 @@ class _MydrawerState extends State<Mydrawer> {
     return new ListView(
       children: [
         new UserAccountsDrawerHeader(
+          decoration: BoxDecoration(color: Colors.black54),
           accountName: nameuser == null ? null : Text(nameuser),
           accountEmail: Text(""),
           currentAccountPicture: new CircleAvatar(
@@ -40,8 +41,16 @@ class _MydrawerState extends State<Mydrawer> {
         //   },
         // ),
         ListTile(
-          title: Text("Créer compte"),
-          trailing: Icon(Icons.add),
+          tileColor: Colors.red.shade700,
+          title: Text("Créer compte",
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white)),
+          trailing: Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
           onTap: () {
             // Navigator.of(context).pop();
             // Scaffold.of(context).showSnackBar(new SnackBar(
@@ -52,9 +61,24 @@ class _MydrawerState extends State<Mydrawer> {
                 context, MaterialPageRoute(builder: (context) => Adduser()));
           },
         ),
+        Text(""),
         ListTile(
-          title: nameuser == null ? Text("Connexion") : Text("Deconnexion"),
-          trailing: Icon(Icons.outbox),
+          tileColor: Colors.red.shade700,
+          title: nameuser == null
+              ? Text("Connexion",
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white))
+              : Text("Deconnexion",
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white)),
+          trailing: Icon(
+            Icons.outbox,
+            color: Colors.white,
+          ),
           onTap: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Accueil()));

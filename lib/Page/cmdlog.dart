@@ -59,7 +59,7 @@ class _CmdLoginState extends State<CmdLogin> {
               ]));
   Future<dynamic> _sendCmd(int nbreCommande, int id) async {
     final http.Response response = await http.post(
-      "https://dakarcafeexpress.com/dakarkj8/public/index.php/api/commandes/ajout",
+      "https://dakarcafeexpress.com/dcx/public/index.php/api/commandes/ajout",
       headers: {
         //"Accept": "application/json",
         "content-Type": "application/json",
@@ -111,12 +111,12 @@ class _CmdLoginState extends State<CmdLogin> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return MaterialApp(
-      theme: ThemeData.dark(),
+      theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           toolbarHeight: 35,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.black87,
           title: Text("Commande"),
           centerTitle: true,
           leading: IconButton(
@@ -161,19 +161,21 @@ class _CmdLoginState extends State<CmdLogin> {
                         Text(
                           "Dakar Café Express",
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
                         ),
                         Spacer(),
                         Text(
                           "Votre Café sur Dakar à porté de clic !",
-                          style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 12, color: Colors.white),
                         ),
                         Spacer(
                             //flex: 3,
                             ),
                         Text(
                           "Appeler au 772471414",
-                          style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 12, color: Colors.white),
                         ),
                         Spacer(
                           flex: 3,
@@ -194,7 +196,13 @@ class _CmdLoginState extends State<CmdLogin> {
                     height: size.height * 0.08,
                   ),
                   Container(
-                    color: Colors.white,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        width: 2,
+                      ),
+                    ),
+                    //color: Colors.white,
                     height: 150,
                     width: 350,
                     child: Column(
@@ -208,11 +216,11 @@ class _CmdLoginState extends State<CmdLogin> {
                                 fontWeight: FontWeight.bold),
                           ),
                           leading: Image(image: NetworkImage(widget.logoP)),
-                          subtitle: Text("${widget.subtitle}",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold)),
+                          // subtitle: Text("${widget.subtitle}",
+                          //     style: TextStyle(
+                          //         color: Colors.black,
+                          //         fontSize: 12,
+                          //         fontWeight: FontWeight.bold)),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -228,16 +236,16 @@ class _CmdLoginState extends State<CmdLogin> {
                           height: size.height * 0.02,
                         ),
                         Container(
-                          height: 40,
-                          width: 100,
+                          height: 50,
+                          width: 150,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(19),
                               color: Colors.red.shade400),
                           child: Center(
                             child: Text("Total: ${widget.sum.toString()}",
                                 style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14,
+                                    color: Colors.white,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.bold)),
                           ),
                         )

@@ -63,7 +63,9 @@ class _DetailcmdState extends State<Detailcmd> {
     //   sumPrice += int.parse(f.widget.selectItemPrice.substring(0,3));
     // });
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.black87,
         title: Text(
           "Dakar Café Express",
           style: TextStyle(
@@ -178,8 +180,8 @@ class _DetailcmdState extends State<Detailcmd> {
                   Text(
                     widget.nomP,
                     style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.white,
+                        fontSize: 14,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
@@ -187,7 +189,7 @@ class _DetailcmdState extends State<Detailcmd> {
                   ),
                   Text(
                     widget.subtitle,
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(color: Colors.black87),
                   ),
                 ],
               ),
@@ -204,7 +206,7 @@ class _DetailcmdState extends State<Detailcmd> {
                     width: 100,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24),
-                      border: Border.all(color: Colors.grey),
+                      border: Border.all(color: Colors.black),
                     ),
                     child: Row(
                       children: <Widget>[
@@ -223,7 +225,10 @@ class _DetailcmdState extends State<Detailcmd> {
                               });
                             },
                             child: Center(
-                              child: Icon(Icons.remove),
+                              child: Icon(
+                                Icons.remove,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
                         ),
@@ -234,8 +239,8 @@ class _DetailcmdState extends State<Detailcmd> {
                                 child: Text(
                               selectedCounter.toString(),
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
                             )),
                           ),
                         ),
@@ -250,7 +255,10 @@ class _DetailcmdState extends State<Detailcmd> {
                               });
                             },
                             child: Center(
-                              child: Icon(Icons.add),
+                              child: Icon(
+                                Icons.add,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
                         ),
@@ -261,50 +269,50 @@ class _DetailcmdState extends State<Detailcmd> {
                   Text(
                     "Total : $sum F",
                     style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
                   ),
                 ],
               ),
             ),
           ),
-          Expanded(
-            flex: 3,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                //Padding(padding: EdgeInsets.only(right: 300.0)),
-                // Container(
-                //   padding: EdgeInsets.only(left: 16, right: 16, top: 10),
-                //   child: Text(
-                //     "Description",
-                //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                //   ),
-                // ),
-                // SizedBox(
-                //   height: 8,
-                // ),
-                // SingleChildScrollView(
-                //   child: Container(
-                //     padding: EdgeInsets.only(left: 16, right: 16, top: 16),
-                //     height: 70,
-                //     decoration: BoxDecoration(
-                //       gradient: LinearGradient(
-                //         colors: [Colors.black, Colors.white.withOpacity(0.8)],
-                //         end: Alignment.center,
-                //         stops: [0.0, 0.5],
-                //       ),
-                //     ),
-                //     child: Text(
-                //         "La commande que vous avez choisie est fait par ${widget.subtitle}"
-                //         " en respectant toutes les mesures d'hygéne,"
-                //         " nous somme à votre disposition pour plus de détails."),
-                //   ),
-                // ),
-              ],
-            ),
-          ),
+          // Expanded(
+          //   flex: 3,
+          //   child: Column(
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: <Widget>[
+          //       //Padding(padding: EdgeInsets.only(right: 300.0)),
+          //       // Container(
+          //       //   padding: EdgeInsets.only(left: 16, right: 16, top: 10),
+          //       //   child: Text(
+          //       //     "Description",
+          //       //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          //       //   ),
+          //       // ),
+          //       // SizedBox(
+          //       //   height: 8,
+          //       // ),
+          //       // SingleChildScrollView(
+          //       //   child: Container(
+          //       //     padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+          //       //     height: 70,
+          //       //     decoration: BoxDecoration(
+          //       //       gradient: LinearGradient(
+          //       //         colors: [Colors.black, Colors.white.withOpacity(0.8)],
+          //       //         end: Alignment.center,
+          //       //         stops: [0.0, 0.5],
+          //       //       ),
+          //       //     ),
+          //       //     child: Text(
+          //       //         "La commande que vous avez choisie est fait par ${widget.subtitle}"
+          //       //         " en respectant toutes les mesures d'hygéne,"
+          //       //         " nous somme à votre disposition pour plus de détails."),
+          //       //   ),
+          //       // ),
+          //     ],
+          //   ),
+          // ),
           Expanded(
             flex: 4,
             child: Padding(

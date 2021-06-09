@@ -16,7 +16,8 @@ class ButtonWidget extends StatelessWidget {
           style: TextStyle(fontSize: 24, color: Colors.white),
         ),
         shape: StadiumBorder(),
-        color: Theme.of(context).primaryColor,
+        color: Colors.black,
+        //Theme.of(context).primaryColor,
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         textColor: Colors.black,
       );

@@ -65,7 +65,7 @@ class _LoginState extends State<Login> {
               ]));
   Future<dynamic> _sendUser(String username, String password) async {
     final http.Response response = await http.post(
-      "https://dakarcafeexpress.com/dakarkj8/public/index.php/api/login_check",
+      "https://dakarcafeexpress.com/dcx/public/index.php/api/login_check",
       headers: <String, String>{
         //"Accept": "application/json",
         "content-Type": "application/json",
@@ -137,7 +137,12 @@ class _LoginState extends State<Login> {
       //     centerTitle: true),
       appBar: AppBar(
         toolbarHeight: 35,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.black87,
+        title: Text(
+          "Connexion",
+          style: TextStyle(color: Colors.white),
+        ),
+        centerTitle: true,
       ),
       //drawer: new Drawer(child: Mydrawer()),
       body: Form(
@@ -151,16 +156,16 @@ class _LoginState extends State<Login> {
               SizedBox(
                 height: 50,
               ),
-              Container(
-                margin: EdgeInsets.all(30),
-                child: Text(
-                  'Bienvenue chez Dakar Café Express',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
-                      color: Colors.white),
-                ),
-              ),
+              // Container(
+              //   margin: EdgeInsets.all(30),
+              //   child: Text(
+              //     'Saisir votre numéro de téléphone et votre mot de passe ou créer un compte',
+              //     style: TextStyle(
+              //         fontWeight: FontWeight.bold,
+              //         fontSize: 19,
+              //         color: Colors.black),
+              //   ),
+              // ),
               // Spacer(
               //   flex: 5,
               // ),
@@ -186,16 +191,19 @@ class _LoginState extends State<Login> {
                   margin: EdgeInsets.symmetric(vertical: 10),
                   width: size.width * 0.8,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.black38,
                     borderRadius: BorderRadius.circular(29),
                   ),
                   child: TextField(
                     controller: user,
+                    keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
-                      hintText: 'Username',
+                      hintText: 'Téléphone',
+                      labelText: 'Numéro de téléphone',
+                      labelStyle: TextStyle(color: Colors.black),
                       icon: Icon(
                         Icons.person,
-                        color: Theme.of(context).primaryColor,
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -207,17 +215,25 @@ class _LoginState extends State<Login> {
                   margin: EdgeInsets.symmetric(vertical: 10),
                   width: size.width * 0.8,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.black38,
                     borderRadius: BorderRadius.circular(29),
                   ),
                   child: TextField(
                     controller: pass,
-                    cursorColor: Colors.black,
+                    cursorColor: Colors.white,
+                    obscureText: true,
                     decoration: InputDecoration(
-                      hintText: 'Password ',
+                      hintText: 'Mot de passe ',
+                      labelText: 'Votre mot de passe',
+                      labelStyle: TextStyle(color: Colors.black),
                       icon: Icon(
                         Icons.lock,
-                        color: Theme.of(context).primaryColor,
+                        color: Colors.black,
+                        //Theme.of(context).primaryColor,
+                      ),
+                      suffixIcon: Icon(
+                        Icons.visibility,
+                        color: Colors.white38,
                       ),
                       //border: InputBorder.none
                     ),

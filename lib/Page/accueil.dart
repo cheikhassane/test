@@ -39,7 +39,7 @@ class Accueil extends StatefulWidget {
 
 class _AccueilState extends State<Accueil> {
   final String url =
-      "https://dakarcafeexpress.com/dakarkj8/public/index.php/products";
+      "https://dakarcafeexpress.com/dcx/public/index.php/products";
 
   List data = [];
 
@@ -54,12 +54,12 @@ class _AccueilState extends State<Accueil> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark(),
+      theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           toolbarHeight: 35,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.black87,
         ),
         drawer: new Drawer(
             child: Mydrawer(
@@ -97,19 +97,21 @@ class _AccueilState extends State<Accueil> {
                         Text(
                           "Dakar Café Express",
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
                         ),
                         Spacer(),
                         Text(
                           "Votre Café sur Dakar à porté de clic !",
-                          style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 12, color: Colors.white),
                         ),
                         Spacer(
                             //flex: 3,
                             ),
                         Text(
                           "Appeler au 772471414",
-                          style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 12, color: Colors.white),
                         ),
                         Spacer(
                           flex: 3,
@@ -141,7 +143,9 @@ class _AccueilState extends State<Accueil> {
                         Text(
                           "Capsules",
                           style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold),
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
                         ),
                       ])),
                       Spacer(
@@ -169,7 +173,9 @@ class _AccueilState extends State<Accueil> {
                           Text(
                             "Machines",
                             style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold),
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
                           ),
                         ])),
                       ),
@@ -195,7 +201,9 @@ class _AccueilState extends State<Accueil> {
                           Text(
                             "Accessoires",
                             style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold),
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
                           ),
                         ])),
                       ),
@@ -233,6 +241,7 @@ class _AccueilState extends State<Accueil> {
                                   "${snapshot.data[index]["description"]}";
                               if (category == "A") {
                                 return Card(
+                                  elevation: 30,
                                   color: Colors.white,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20)),
@@ -296,7 +305,10 @@ class _AccueilState extends State<Accueil> {
                         } else if (snapshot.hasError) {
                           return Text("${snapshot.error}");
                         }
-                        return Center(child: CircularProgressIndicator());
+                        return Center(
+                            child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+                        ));
                       }),
                 ),
               ),

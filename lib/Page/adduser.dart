@@ -64,7 +64,7 @@ class _AdduserState extends State<Adduser> {
   Future<dynamic> _addUser(String phone, String firstName, String lastName,
       String adresse, String password) async {
     final http.Response response = await http.post(
-      "https://dakarcafeexpress.com/dakarkj8/public/index.php/users/ajout",
+      "https://dakarcafeexpress.com/dcx/public/index.php/users/ajout",
       headers: <String, String>{
         //   "Accept": "application/json; charset=UTF-8",
         "content-Type": "application/json",
@@ -148,7 +148,7 @@ class _AdduserState extends State<Adduser> {
             "Créer un compte",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.black87,
           actions: [
             Image(
               image: AssetImage("assets/logoa.png"),
@@ -190,13 +190,15 @@ class _AdduserState extends State<Adduser> {
                   margin: EdgeInsets.symmetric(vertical: 10),
                   width: size.width * 0.8,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.black38,
+                    //color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(29),
                   ),
                   child: TextField(
                     controller: ph,
+                    keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
-                      hintText: 'Télephone',
+                      hintText: 'Téléphone',
                       // icon: Icon(
                       //   Icons.person,
                       //   color: Theme.of(context).primaryColor,
@@ -211,7 +213,8 @@ class _AdduserState extends State<Adduser> {
                   margin: EdgeInsets.symmetric(vertical: 10),
                   width: size.width * 0.8,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.black38,
+                    //color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(29),
                   ),
                   child: TextField(
@@ -234,7 +237,8 @@ class _AdduserState extends State<Adduser> {
                   margin: EdgeInsets.symmetric(vertical: 10),
                   width: size.width * 0.8,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.black38,
+                    //color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(29),
                   ),
                   child: TextField(
@@ -257,7 +261,8 @@ class _AdduserState extends State<Adduser> {
                   margin: EdgeInsets.symmetric(vertical: 10),
                   width: size.width * 0.8,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.black38,
+                    //color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(29),
                   ),
                   child: TextField(
@@ -280,18 +285,19 @@ class _AdduserState extends State<Adduser> {
                   margin: EdgeInsets.symmetric(vertical: 10),
                   width: size.width * 0.8,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.black38,
+                    //color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(29),
                   ),
                   child: TextField(
                     controller: pass,
-                    //cursorColor: Colors.black,
+                    cursorColor: Colors.white,
                     decoration: InputDecoration(
                       hintText: 'Mot de Passe ',
-                      icon: Icon(
-                        Icons.lock,
-                        color: Theme.of(context).primaryColor,
-                      ),
+                      // icon: Icon(
+                      //   Icons.lock,
+                      //   color: Theme.of(context).primaryColor,
+                      // ),
                       //border: InputBorder.none
                     ),
                   ),
@@ -318,9 +324,9 @@ class _AdduserState extends State<Adduser> {
               //     ),
               //   ),
               // ),
-              // SizedBox(
-              //   height: size.height * 0.5,
-              // ),
+              SizedBox(
+                height: size.height * 0.02,
+              ),
               RaisedButton(
                   color: Colors.black,
                   child: Text(

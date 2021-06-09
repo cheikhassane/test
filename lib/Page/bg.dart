@@ -13,7 +13,7 @@ class HomePageBackground extends StatelessWidget {
     return ClipPath(
       clipper: BottomShapeClipper(),
       child: Container(
-        height: screenHeight * 0.32,
+        height: screenHeight * 0.33,
         child: Image(
           image: AssetImage("assets/accueil.jpeg"),
           fit: BoxFit.cover,
