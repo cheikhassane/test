@@ -78,13 +78,26 @@ class _LoginState extends State<Login> {
     var datauser = json.decode(response.body);
     print('Response status: ${response.statusCode}');
     final String token = datauser["token"];
+    //final String message = datauser["message"];
     Map<String, dynamic> decodedToken = JwtDecoder.decode(token);
-    print(decodedToken['username']);
+    //print(decodedToken);
+    //print(message);
     final String userid = decodedToken['username'];
     //print('Token: ${token}');
     // data = datauser;
     //response.statusCode == 200
-    if (response.statusCode == 200) {
+    if (response.statusCode == 401) {
+      //print("username or password no correct");
+      displayDialog(context, "Vérifier votre saisie",
+          "Nom utilisateur ou mot de passe incorrect");
+      //   if (response.statusCode == 401) {
+      //   displayDialog(context, "Vérifier votre saisie",
+      //       "Nom utilisateur ou mot de passe incorrect");
+      // setState(() {
+      //   msg = "username or password no correct";
+      // });
+      // }
+    } else if (response.statusCode == 200) {
       print("Welcome admin");
       Navigator.push(
           context,
@@ -102,13 +115,6 @@ class _LoginState extends State<Login> {
     } else {
       displayDialog(context, "Vérifier votre saisie",
           "Nom utilisateur ou mot de passe incorrect");
-      //   if (response.statusCode == 401) {
-      //   displayDialog(context, "Vérifier votre saisie",
-      //       "Nom utilisateur ou mot de passe incorrect");
-      //   // setState(() {
-      //   //   msg = "Login Failed";
-      //   // });
-      // }
     }
     // setState(() {
 
@@ -121,7 +127,7 @@ class _LoginState extends State<Login> {
   // @override
   // void initState() {
   //   super.initState();
-  //   _sendUser();
+  //   //_sendUser();
   // }
 
   @override
@@ -253,6 +259,13 @@ class _LoginState extends State<Login> {
                   onClicked: () => _sendUser(user.text, pass.text)),
               SizedBox(
                 height: 30,
+              ),
+              Text(
+                msg,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    color: Colors.red),
               ),
               // Spacer(
               //   flex: 3,
