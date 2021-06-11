@@ -42,11 +42,22 @@ class _MydrawerState extends State<Mydrawer> {
         // ),
         ListTile(
           tileColor: Colors.red.shade700,
-          title: Text("Créer compte",
-              style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white)),
+          title: nameuser == null
+              ? Text("Créer compte",
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white))
+              : Text("",
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white)),
+          //Text("Créer compte",
+          //     style: TextStyle(
+          //         fontSize: 14,
+          //         fontWeight: FontWeight.bold,
+          //         color: Colors.white)),
           trailing: Icon(
             Icons.add,
             color: Colors.white,

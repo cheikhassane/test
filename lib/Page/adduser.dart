@@ -30,6 +30,7 @@ class Adduser extends StatefulWidget {
 
 class _AdduserState extends State<Adduser> {
   // Future<Users> _futureGet;
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController ph = new TextEditingController();
   final TextEditingController firt = new TextEditingController();
   final TextEditingController last = new TextEditingController();
@@ -158,6 +159,7 @@ class _AdduserState extends State<Adduser> {
           ],
           centerTitle: true),
       body: Form(
+        key: _formKey,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -194,8 +196,9 @@ class _AdduserState extends State<Adduser> {
                     //color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(29),
                   ),
-                  child: TextField(
+                  child: TextFormField(
                     controller: ph,
+                    cursorColor: Colors.white,
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                       hintText: 'Téléphone',
@@ -204,6 +207,12 @@ class _AdduserState extends State<Adduser> {
                       //   color: Theme.of(context).primaryColor,
                       // ),
                     ),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Veuillez saisir votre Téléphone';
+                      }
+                      return null;
+                    },
                   ),
                 ),
               ),
@@ -217,9 +226,10 @@ class _AdduserState extends State<Adduser> {
                     //color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(29),
                   ),
-                  child: TextField(
+                  child: TextFormField(
                     controller: firt,
-                    //cursorColor: Colors.black,
+                    keyboardType: TextInputType.text,
+                    cursorColor: Colors.white,
                     decoration: InputDecoration(
                       hintText: 'Prénom ',
                       // icon: Icon(
@@ -228,6 +238,12 @@ class _AdduserState extends State<Adduser> {
                       // ),
                       //border: InputBorder.none
                     ),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Veuillez saisir votre prénom';
+                      }
+                      return null;
+                    },
                   ),
                 ),
               ),
@@ -241,9 +257,10 @@ class _AdduserState extends State<Adduser> {
                     //color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(29),
                   ),
-                  child: TextField(
+                  child: TextFormField(
                     controller: last,
-                    //cursorColor: Colors.black,
+                    keyboardType: TextInputType.text,
+                    cursorColor: Colors.white,
                     decoration: InputDecoration(
                       hintText: 'Nom ',
                       // icon: Icon(
@@ -252,6 +269,12 @@ class _AdduserState extends State<Adduser> {
                       // ),
                       //border: InputBorder.none
                     ),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Veuillez saisir votre nom';
+                      }
+                      return null;
+                    },
                   ),
                 ),
               ),
@@ -265,9 +288,10 @@ class _AdduserState extends State<Adduser> {
                     //color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(29),
                   ),
-                  child: TextField(
+                  child: TextFormField(
                     controller: addr,
-                    //cursorColor: Colors.black,
+                    keyboardType: TextInputType.text,
+                    cursorColor: Colors.white,
                     decoration: InputDecoration(
                       hintText: 'Adresse ',
                       // icon: Icon(
@@ -276,6 +300,12 @@ class _AdduserState extends State<Adduser> {
                       // ),
                       //border: InputBorder.none
                     ),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Veuillez saisir votre adresse';
+                      }
+                      return null;
+                    },
                   ),
                 ),
               ),
@@ -289,9 +319,10 @@ class _AdduserState extends State<Adduser> {
                     //color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(29),
                   ),
-                  child: TextField(
+                  child: TextFormField(
                     controller: pass,
                     cursorColor: Colors.white,
+                    keyboardType: TextInputType.text,
                     decoration: InputDecoration(
                       hintText: 'Mot de Passe ',
                       // icon: Icon(
@@ -300,6 +331,12 @@ class _AdduserState extends State<Adduser> {
                       // ),
                       //border: InputBorder.none
                     ),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Veuillez saisir votre mot de passe';
+                      }
+                      return null;
+                    },
                   ),
                 ),
               ),
@@ -339,10 +376,12 @@ class _AdduserState extends State<Adduser> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
                   onPressed: () {
-                    _addUser(
-                        ph.text, firt.text, last.text, addr.text, pass.text);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Accueil()));
+                    if (_formKey.currentState.validate()) {
+                      _addUser(
+                          ph.text, firt.text, last.text, addr.text, pass.text);
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Accueil()));
+                    }
                   }),
               //ButtonWidget(text: 'Adduser', onClicked: () => _addUser()),
 

@@ -36,6 +36,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   // Future<Users> _futureGet;
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController user = new TextEditingController();
   final TextEditingController pass = new TextEditingController();
   String msg = '';
@@ -151,6 +152,7 @@ class _LoginState extends State<Login> {
       ),
       //drawer: new Drawer(child: Mydrawer()),
       body: Form(
+        key: _formKey,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -199,9 +201,16 @@ class _LoginState extends State<Login> {
                     color: Colors.black38,
                     borderRadius: BorderRadius.circular(29),
                   ),
-                  child: TextField(
+                  child: TextFormField(
                     controller: user,
                     keyboardType: TextInputType.phone,
+                    cursorColor: Colors.white,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Veuillez saisir votre Téléphone';
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                       hintText: 'Téléphone',
                       labelText: 'Numéro de téléphone',
@@ -223,10 +232,16 @@ class _LoginState extends State<Login> {
                     color: Colors.black38,
                     borderRadius: BorderRadius.circular(29),
                   ),
-                  child: TextField(
+                  child: TextFormField(
                     controller: pass,
                     cursorColor: Colors.white,
                     obscureText: true,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Veuillez saisir votre mot de passe';
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                       hintText: 'Mot de passe ',
                       labelText: 'Votre mot de passe',
@@ -256,7 +271,11 @@ class _LoginState extends State<Login> {
               //     }),
               ButtonWidget(
                   text: 'Login',
-                  onClicked: () => _sendUser(user.text, pass.text)),
+                  onClicked: () {
+                    if (_formKey.currentState.validate()) {
+                      _sendUser(user.text, pass.text);
+                    }
+                  }),
               SizedBox(
                 height: 30,
               ),

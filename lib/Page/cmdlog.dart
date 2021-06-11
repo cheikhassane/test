@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:dakar_cafe_express/Page/accueil.dart';
 import 'package:dakar_cafe_express/Page/buttonWidget.dart';
+//import 'package:dakar_cafe_express/Page/detailcmd.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
@@ -122,7 +123,20 @@ class _CmdLoginState extends State<CmdLogin> {
           leading: IconButton(
               icon: Icon(Icons.arrow_back),
               onPressed: () {
-                Navigator.pop(context);
+                //Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Accueil(
+                              token: widget.token,
+                              userid: widget.userid,
+                              idp: widget.idp,
+                              //sum: widget.sum,
+                              nomP: widget.nomP,
+                              subtitle: widget.subtitle,
+                              //selectedCounter: widget.selectedCounter,
+                              logoP: widget.logoP,
+                            )));
               }),
         ),
         endDrawer: Drawer(

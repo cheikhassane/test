@@ -18,6 +18,8 @@ class Detailcmd extends StatefulWidget {
   final String userid;
   final String token;
   final String nameuser;
+  // final int sum;
+  // final int selectedCounter;
   Detailcmd({
     this.logoP,
     this.nomP,
@@ -28,6 +30,8 @@ class Detailcmd extends StatefulWidget {
     this.userid,
     this.token,
     this.nameuser,
+    //this.sum,
+    //this.selectedCounter
   });
   @override
   _DetailcmdState createState() => _DetailcmdState();
@@ -40,6 +44,26 @@ class _DetailcmdState extends State<Detailcmd> {
   List user = [];
   // String productId = "";
   // String idBoul = "";
+
+  void displayDialog(context, title, text) => showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+              title: Text(title),
+              content: Text(text),
+              actions: <Widget>[
+                FlatButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => PageOne()));
+                  },
+                  child: Text("OK",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold)),
+                )
+              ]));
 
   void sumPriceadd() {
     setState(() {
@@ -215,13 +239,15 @@ class _DetailcmdState extends State<Detailcmd> {
                           child: InkWell(
                             onTap: () {
                               setState(() {
-                                if (selectedCounter < 1) {
-                                  print("under 1 blocking");
-                                } else {
-                                  selectedCounter--;
-                                  sumPriceRm();
-                                  //user.remove(user);
-                                }
+                                selectedCounter--;
+                                sumPriceRm();
+                                // if (selectedCounter < 1) {
+                                //   print("under 1 blocking");
+                                // } else {
+                                //   selectedCounter--;
+                                //   sumPriceRm();
+                                //   //user.remove(user);
+                                // }
                               });
                             },
                             child: Center(
@@ -249,6 +275,16 @@ class _DetailcmdState extends State<Detailcmd> {
                           child: InkWell(
                             onTap: () {
                               setState(() {
+                                // if (selectedCounter >= 1) {
+                                //   // print("under 1 blocking");
+                                //   selectedCounter++;
+                                //   sumPriceadd();
+                                // } else {
+                                //   print("under 1 blocking");
+                                //   // selectedCounter++;
+                                //   // sumPriceadd();
+                                //   //user.remove(user);
+                                // }
                                 selectedCounter++;
                                 sumPriceadd();
                                 //user.add(user);
@@ -341,17 +377,25 @@ class _DetailcmdState extends State<Detailcmd> {
                                   vertical: 20, horizontal: 40),
                               color: Colors.black,
                               onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => Commande(
-                                          idp: widget.idp,
-                                          userid: widget.userid,
-                                          token: widget.token,
-                                          sum: sum,
-                                          nomP: widget.nomP,
-                                          subtitle: widget.subtitle,
-                                          selectedCounter: selectedCounter,
-                                          logoP: widget.logoP,
-                                        )));
+                                if (selectedCounter >= 1) {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => Commande(
+                                            idp: widget.idp,
+                                            userid: widget.userid,
+                                            token: widget.token,
+                                            sum: sum,
+                                            nomP: widget.nomP,
+                                            subtitle: widget.subtitle,
+                                            selectedCounter: selectedCounter,
+                                            logoP: widget.logoP,
+                                          )));
+                                } else {
+                                  print("invalide");
+                                  displayDialog(
+                                      context,
+                                      "Vérifier votre saisie",
+                                      "Ajouter au moins une commande sur ce produit");
+                                }
                               },
                               child: Text(
                                 "Commander",
