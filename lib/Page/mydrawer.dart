@@ -47,12 +47,12 @@ class _MydrawerState extends State<Mydrawer> {
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white))
+                      color: Colors.black))
               : Text("",
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white)),
+                      color: Colors.black)),
           //Text("Créer compte",
           //     style: TextStyle(
           //         fontSize: 14,
@@ -80,12 +80,12 @@ class _MydrawerState extends State<Mydrawer> {
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white))
+                      color: Colors.black))
               : Text("Deconnexion",
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white)),
+                      color: Colors.black)),
           // trailing: Icon(
           //   Icons.outbox,
           //   color: Colors.white,
