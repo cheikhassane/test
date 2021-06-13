@@ -303,7 +303,8 @@ class _AccueilState extends State<Accueil> {
                             },
                           );
                         } else if (snapshot.hasError) {
-                          return Text("${snapshot.error}");
+                          return Text(
+                              "Veuillez vérifier si votre portable est connecté");
                         }
                         return Center(
                             child: CircularProgressIndicator(

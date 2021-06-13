@@ -1,3 +1,5 @@
+//import 'dart:io';
+
 import 'package:dakar_cafe_express/Page/accesoire.dart';
 import 'package:dakar_cafe_express/Page/accueil.dart';
 import 'package:dakar_cafe_express/Page/bg.dart';
@@ -49,6 +51,11 @@ class _MachineState extends State<Machine> {
 
   @override
   Widget build(BuildContext context) {
+    // try {
+
+    // } on SocketException catch (_) {
+
+    // }
     return MaterialApp(
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
@@ -296,7 +303,8 @@ class _MachineState extends State<Machine> {
                             },
                           );
                         } else if (snapshot.hasError) {
-                          return Text("${snapshot.error}");
+                          return Text(
+                              "Veuillez vérifier si votre portable est connecté");
                         }
                         return Center(
                             child: CircularProgressIndicator(

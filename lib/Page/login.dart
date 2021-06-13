@@ -270,7 +270,7 @@ class _LoginState extends State<Login> {
               //       _sendUser();
               //     }),
               ButtonWidget(
-                  text: 'Login',
+                  text: 'Connexion',
                   onClicked: () {
                     if (_formKey.currentState.validate()) {
                       _sendUser(user.text, pass.text);
