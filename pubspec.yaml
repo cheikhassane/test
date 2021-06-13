@@ -1,5 +1,7 @@
 name: dakar_cafe_express
-description: A new Flutter project.
+description: Application marketplace coffee"
+authors:
+  - "Cheikh Assane THIAM"
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
