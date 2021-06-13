@@ -75,31 +75,19 @@ class _LoginState extends State<Login> {
         'password': password,
       }),
     );
-    debugPrint(response.body);
+
     var datauser = json.decode(response.body);
-    print('Response status: ${response.statusCode}');
+
     final String token = datauser["token"];
-    //final String message = datauser["message"];
+
     Map<String, dynamic> decodedToken = JwtDecoder.decode(token);
-    //print(decodedToken);
-    //print(message);
+
     final String userid = decodedToken['username'];
-    //print('Token: ${token}');
-    // data = datauser;
-    //response.statusCode == 200
+
     if (response.statusCode == 401) {
-      //print("username or password no correct");
       displayDialog(context, "Vérifier votre saisie",
           "Nom utilisateur ou mot de passe incorrect");
-      //   if (response.statusCode == 401) {
-      //   displayDialog(context, "Vérifier votre saisie",
-      //       "Nom utilisateur ou mot de passe incorrect");
-      // setState(() {
-      //   msg = "username or password no correct";
-      // });
-      // }
     } else if (response.statusCode == 200) {
-      print("Welcome admin");
       Navigator.push(
           context,
           MaterialPageRoute(
@@ -125,22 +113,10 @@ class _LoginState extends State<Login> {
     return datauser;
   }
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   //_sendUser();
-  // }
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      // appBar: AppBar(
-      //     title: Text(
-      //       "Login",
-      //       style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-      //     ),
-      //     centerTitle: true),
       appBar: AppBar(
         toolbarHeight: 35,
         backgroundColor: Colors.black87,
@@ -150,7 +126,6 @@ class _LoginState extends State<Login> {
         ),
         centerTitle: true,
       ),
-      //drawer: new Drawer(child: Mydrawer()),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
@@ -163,35 +138,13 @@ class _LoginState extends State<Login> {
               SizedBox(
                 height: 50,
               ),
-              // Container(
-              //   margin: EdgeInsets.all(30),
-              //   child: Text(
-              //     'Saisir votre numéro de téléphone et votre mot de passe ou créer un compte',
-              //     style: TextStyle(
-              //         fontWeight: FontWeight.bold,
-              //         fontSize: 19,
-              //         color: Colors.black),
-              //   ),
-              // ),
-              // Spacer(
-              //   flex: 5,
-              // ),
+
               Image(
                 image: AssetImage("assets/logoa.png"),
                 height: 200,
                 width: 200,
               ),
-              // SizedBox(
-              //   height: 100,
-              // ),
-              //Spacer(flex: 2),
-              // Icon(
-              //   Icons.login,
-              //   size: size.height * 0.07,
-              // ),
-              // SizedBox(
-              //   height: size.height * 0.05,
-              // ),
+
               Center(
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -261,14 +214,6 @@ class _LoginState extends State<Login> {
                 ),
               ),
 
-              // SizedBox(
-              //   height: size.height * 0.5,
-              // ),
-              // RaisedButton(
-              //     child: Text("Login"),
-              //     onPressed: () {
-              //       _sendUser();
-              //     }),
               ButtonWidget(
                   text: 'Connexion',
                   onClicked: () {
@@ -298,9 +243,6 @@ class _LoginState extends State<Login> {
                   text: "Créer un compte",
                   onClicked: () => Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Adduser()))),
-              // Spacer(
-              //   flex: 4,
-              // ),
             ],
           ),
         ),
