@@ -9,11 +9,16 @@ class HomePageBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //final themeData = Theme.of(context);
+    final Size size = MediaQuery.of(context).size;
+    print(size);
 
     return ClipPath(
       clipper: BottomShapeClipper(),
       child: Container(
-        height: screenHeight * 0.33,
+        //height: size.height,
+        //width: size.width,
+        height: screenHeight * 0.3,
+        width: screenHeight * 0.68,
         child: Image(
           image: AssetImage("assets/accueil.jpeg"),
           fit: BoxFit.cover,
@@ -29,8 +34,8 @@ class BottomShapeClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = Path();
-    Offset curveStartPoint = Offset(0, size.height * 0.95);
-    Offset curveEndPoint = Offset(size.width, size.height * 0.95);
+    Offset curveStartPoint = Offset(0, size.height * 1);
+    Offset curveEndPoint = Offset(size.width, size.height * 1);
     path.lineTo(curveStartPoint.dx, curveStartPoint.dy);
     path.quadraticBezierTo(
         size.width / 2, size.height, curveEndPoint.dx, curveEndPoint.dy);

@@ -5,7 +5,7 @@ import 'package:dakar_cafe_express/Page/buttonWidget.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
-import 'package:dakar_cafe_express/Page/bg.dart';
+//import 'package:dakar_cafe_express/Page/bg.dart';
 
 import 'mydrawer.dart';
 
@@ -108,6 +108,12 @@ class _CmdLoginState extends State<CmdLogin> {
     super.initState();
   }
 
+  static bool isMobile(BuildContext context) =>
+      MediaQuery.of(context).size.height > 900;
+  static bool isTablet(BuildContext context) =>
+      MediaQuery.of(context).size.height > 700 &&
+      MediaQuery.of(context).size.width < 1000;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -145,11 +151,54 @@ class _CmdLoginState extends State<CmdLogin> {
         )),
         body: Stack(
           children: [
-            HomePageBackground(
-                screenHeight: MediaQuery.of(context).size.height),
+            Container(
+              child: isMobile(context) != true
+                  ? Container(
+                      //height: size.height,
+                      //width: size.width,
+                      height: 280,
+                      width: size.width,
+
+                      child: Image(
+                        image: AssetImage("assets/accueil.jpeg"),
+                        fit: BoxFit.cover,
+                        // alignment: Alignment.bottomCenter,
+                      ),
+                      //color: themeData.primaryColor,
+                    )
+                  : isTablet(context) == true
+                      ? Container(
+                          //height: size.height,
+                          //width: size.width,
+                          height: 360,
+                          width: size.width,
+
+                          child: Image(
+                            image: AssetImage("assets/accueil.jpeg"),
+                            fit: BoxFit.cover,
+                            // alignment: Alignment.bottomCenter,
+                          ),
+                          //color: themeData.primaryColor,
+                        )
+                      : Container(
+                          //height: size.height,
+                          //width: size.width,
+                          height: 560,
+                          width: size.width,
+
+                          child: Image(
+                            image: AssetImage("assets/accueil.jpeg"),
+                            fit: BoxFit.cover,
+                            // alignment: Alignment.bottomCenter,
+                          ),
+                          //color: themeData.primaryColor,
+                        ),
+            ),
+            // HomePageBackground(
+            //     screenHeight: MediaQuery.of(context).size.height),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 650, left: 270),
+                padding: const EdgeInsets.only(bottom: 550, left: 270),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(50),
                   child: Image(
@@ -201,11 +250,22 @@ class _CmdLoginState extends State<CmdLogin> {
               ),
             ),
             SingleChildScrollView(
-              padding: EdgeInsets.only(top: 370, left: 40, right: 40),
+              //padding: EdgeInsets.only(top: 390, left: 40, right: 40),
               child: Column(
                 //mainAxisAlignment: MainAxisAlignment.center,
                 //crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  isMobile(context) != true
+                      ? Padding(
+                          padding:
+                              EdgeInsets.only(top: 410, left: 40, right: 40))
+                      : isTablet(context) == true
+                          ? Padding(
+                              padding: EdgeInsets.only(
+                                  top: 470, left: 40, right: 40))
+                          : Padding(
+                              padding: EdgeInsets.only(
+                                  top: 610, left: 40, right: 40)),
                   SizedBox(
                     height: size.height * 0.08,
                   ),
@@ -213,12 +273,12 @@ class _CmdLoginState extends State<CmdLogin> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
-                        width: 2,
+                        width: 0.3,
                       ),
                     ),
                     //color: Colors.white,
-                    height: 150,
-                    width: 350,
+                    height: 160,
+                    //width: 350,
                     child: Column(
                       children: [
                         ListTile(

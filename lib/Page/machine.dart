@@ -2,7 +2,7 @@
 
 import 'package:dakar_cafe_express/Page/accesoire.dart';
 import 'package:dakar_cafe_express/Page/accueil.dart';
-import 'package:dakar_cafe_express/Page/bg.dart';
+//import 'package:dakar_cafe_express/Page/bg.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
@@ -49,13 +49,16 @@ class _MachineState extends State<Machine> {
     return data;
   }
 
+  static bool isMobile(BuildContext context) =>
+      MediaQuery.of(context).size.height > 900;
+  static bool isTablet(BuildContext context) =>
+      MediaQuery.of(context).size.height > 700 &&
+      MediaQuery.of(context).size.width < 1000;
+
   @override
   Widget build(BuildContext context) {
-    // try {
-
-    // } on SocketException catch (_) {
-
-    // }
+    final Size size = MediaQuery.of(context).size;
+    print(size);
     return MaterialApp(
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
@@ -70,11 +73,54 @@ class _MachineState extends State<Machine> {
         )),
         body: Stack(
           children: [
-            HomePageBackground(
-                screenHeight: MediaQuery.of(context).size.height),
+            Container(
+              child: isMobile(context) != true
+                  ? Container(
+                      //height: size.height,
+                      //width: size.width,
+                      height: 280,
+                      width: size.width,
+
+                      child: Image(
+                        image: AssetImage("assets/accueil.jpeg"),
+                        fit: BoxFit.cover,
+                        // alignment: Alignment.bottomCenter,
+                      ),
+                      //color: themeData.primaryColor,
+                    )
+                  : isTablet(context) == true
+                      ? Container(
+                          //height: size.height,
+                          //width: size.width,
+                          height: 360,
+                          width: size.width,
+
+                          child: Image(
+                            image: AssetImage("assets/accueil.jpeg"),
+                            fit: BoxFit.cover,
+                            // alignment: Alignment.bottomCenter,
+                          ),
+                          //color: themeData.primaryColor,
+                        )
+                      : Container(
+                          //height: size.height,
+                          //width: size.width,
+                          height: 560,
+                          width: size.width,
+
+                          child: Image(
+                            image: AssetImage("assets/accueil.jpeg"),
+                            fit: BoxFit.cover,
+                            // alignment: Alignment.bottomCenter,
+                          ),
+                          //color: themeData.primaryColor,
+                        ),
+            ),
+            // HomePageBackground(
+            //     screenHeight: MediaQuery.of(context).size.height),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 650, left: 320),
+                padding: const EdgeInsets.only(bottom: 550, left: 320),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(50),
                   child: Image(
@@ -217,10 +263,10 @@ class _MachineState extends State<Machine> {
             ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 450),
+                padding: const EdgeInsets.only(top: 410),
                 child: Container(
                   height: 300,
-                  width: 400,
+                  //width: 400,
                   //color: Theme.of(context).primaryColor,
                   child: FutureBuilder(
                       future: getProduct(),
