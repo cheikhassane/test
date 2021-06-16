@@ -197,18 +197,58 @@ class _CmdLoginState extends State<CmdLogin> {
             // HomePageBackground(
             //     screenHeight: MediaQuery.of(context).size.height),
             Center(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 550, left: 270),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(50),
-                  child: Image(
-                    image: AssetImage("assets/logoa.png"),
-                    fit: BoxFit.cover,
-                    height: 100,
-                    width: 100,
-                  ),
-                ),
-              ),
+              child: isMobile(context) != true
+                  ? Padding(
+                      padding: const EdgeInsets.only(bottom: 650, left: 270),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(50),
+                        child: Image(
+                          image: AssetImage("assets/logoa.png"),
+                          fit: BoxFit.cover,
+                          height: 100,
+                          width: 100,
+                        ),
+                      ),
+                    )
+                  : isTablet(context) == true
+                      ? Padding(
+                          padding:
+                              const EdgeInsets.only(bottom: 750, left: 670),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Image(
+                              image: AssetImage("assets/logoa.png"),
+                              fit: BoxFit.cover,
+                              height: 100,
+                              width: 100,
+                            ),
+                          ),
+                        )
+                      : Padding(
+                          padding:
+                              const EdgeInsets.only(bottom: 850, left: 770),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Image(
+                              image: AssetImage("assets/logoa.png"),
+                              fit: BoxFit.cover,
+                              height: 100,
+                              width: 100,
+                            ),
+                          ),
+                        ),
+              // Padding(
+              //   padding: const EdgeInsets.only(bottom: 550, left: 270),
+              //   child: ClipRRect(
+              //     borderRadius: BorderRadius.circular(50),
+              //     child: Image(
+              //       image: AssetImage("assets/logoa.png"),
+              //       fit: BoxFit.cover,
+              //       height: 100,
+              //       width: 100,
+              //     ),
+              //   ),
+              // ),
             ),
             Center(
               child: Padding(
@@ -258,7 +298,7 @@ class _CmdLoginState extends State<CmdLogin> {
                   isMobile(context) != true
                       ? Padding(
                           padding:
-                              EdgeInsets.only(top: 410, left: 40, right: 40))
+                              EdgeInsets.only(top: 310, left: 40, right: 40))
                       : isTablet(context) == true
                           ? Padding(
                               padding: EdgeInsets.only(
