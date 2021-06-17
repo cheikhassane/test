@@ -306,105 +306,335 @@ class _AccueilState extends State<Accueil> {
               ),
             ),
             Center(
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 410,
-                ),
-                child: Container(
-                  height: 300,
-                  //width: 400,
-                  //color: Theme.of(context).primaryColor,
-                  child: FutureBuilder(
-                      future: getProduct(),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          return ListView.builder(
-                            itemCount: snapshot.data == 0
-                                ? null
-                                : snapshot.data.length,
-                            itemBuilder: (context, index) {
-                              final logoP = "${snapshot.data[index]["image"]}";
-                              final nomP = "${snapshot.data[index]["libelle"]}";
-                              final idp = "${snapshot.data[index]["id"]}";
-                              final priceP = "${snapshot.data[index]["price"]}";
-                              final category =
-                                  "${snapshot.data[index]["category"]}";
-                              final subtitle =
-                                  "${snapshot.data[index]["description"]}";
-                              if (category == "A") {
-                                return Card(
-                                  elevation: 30,
-                                  color: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20)),
-                                  child: ListTile(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => Detailcmd(
-                                                    logoP: logoP,
-                                                    nomP: nomP,
-                                                    priceP: priceP,
-                                                    subtitle: subtitle,
-                                                    idp: idp,
-                                                    userid: widget.userid
-                                                        .toString(),
-                                                    token: widget.token,
-                                                  )));
-                                    },
-                                    leading: Image(
-                                      //image: AssetImage("assets/logoa.png"),
-                                      image: NetworkImage(
-                                          "${snapshot.data[index]["image"]}"),
-                                      fit: BoxFit.cover,
-                                      height: 50,
-                                      width: 50,
-                                    ),
-                                    title: Text(
-                                      "${snapshot.data[index]["libelle"]}",
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    subtitle: Text(
-                                      //"${widget.token}",
-                                      "${snapshot.data[index]["description"]}",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 12,
-                                        //fontWeight: FontWeight.bold
-                                      ),
-                                    ),
-                                    trailing: Text(
-                                      "${snapshot.data[index]["price"].toString()}F",
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
+              child: isMobile(context) != true
+                  ? Padding(
+                      padding: const EdgeInsets.only(
+                        top: 410,
+                      ),
+                      child: Container(
+                        height: 300,
+                        //width: 400,
+                        //color: Theme.of(context).primaryColor,
+                        child: FutureBuilder(
+                            future: getProduct(),
+                            builder: (context, snapshot) {
+                              if (snapshot.hasData) {
+                                return ListView.builder(
+                                  itemCount: snapshot.data == 0
+                                      ? null
+                                      : snapshot.data.length,
+                                  itemBuilder: (context, index) {
+                                    final logoP =
+                                        "${snapshot.data[index]["image"]}";
+                                    final nomP =
+                                        "${snapshot.data[index]["libelle"]}";
+                                    final idp = "${snapshot.data[index]["id"]}";
+                                    final priceP =
+                                        "${snapshot.data[index]["price"]}";
+                                    final category =
+                                        "${snapshot.data[index]["category"]}";
+                                    final subtitle =
+                                        "${snapshot.data[index]["description"]}";
+                                    if (category == "A") {
+                                      return Card(
+                                        elevation: 30,
+                                        color: Colors.white,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        child: ListTile(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Detailcmd(
+                                                          logoP: logoP,
+                                                          nomP: nomP,
+                                                          priceP: priceP,
+                                                          subtitle: subtitle,
+                                                          idp: idp,
+                                                          userid: widget.userid
+                                                              .toString(),
+                                                          token: widget.token,
+                                                        )));
+                                          },
+                                          leading: Image(
+                                            //image: AssetImage("assets/logoa.png"),
+                                            image: NetworkImage(
+                                                "${snapshot.data[index]["image"]}"),
+                                            fit: BoxFit.cover,
+                                            height: 50,
+                                            width: 50,
+                                          ),
+                                          title: Text(
+                                            "${snapshot.data[index]["libelle"]}",
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          subtitle: Text(
+                                            //"${widget.token}",
+                                            "${snapshot.data[index]["description"]}",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 12,
+                                              //fontWeight: FontWeight.bold
+                                            ),
+                                          ),
+                                          trailing: Text(
+                                            "${snapshot.data[index]["price"].toString()}F",
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      );
+                                    } else {
+                                      return Text(
+                                        "",
+                                        style: TextStyle(fontSize: 0),
+                                      );
+                                    }
+                                  },
                                 );
-                              } else {
+                              } else if (snapshot.hasError) {
                                 return Text(
-                                  "",
-                                  style: TextStyle(fontSize: 0),
-                                );
+                                    "Veuillez vérifier si votre portable est connecté");
                               }
-                            },
-                          );
-                        } else if (snapshot.hasError) {
-                          return Text(
-                              "Veuillez vérifier si votre portable est connecté");
-                        }
-                        return Center(
-                            child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
-                        ));
-                      }),
-                ),
-              ),
+                              return Center(
+                                  child: CircularProgressIndicator(
+                                valueColor:
+                                    AlwaysStoppedAnimation<Color>(Colors.red),
+                              ));
+                            }),
+                      ),
+                    )
+                  : isTablet(context) == true
+                      ? Padding(
+                          padding: const EdgeInsets.only(
+                            top: 510,
+                          ),
+                          child: Container(
+                            height: 400,
+                            //width: 400,
+                            //color: Theme.of(context).primaryColor,
+                            child: FutureBuilder(
+                                future: getProduct(),
+                                builder: (context, snapshot) {
+                                  if (snapshot.hasData) {
+                                    return ListView.builder(
+                                      itemCount: snapshot.data == 0
+                                          ? null
+                                          : snapshot.data.length,
+                                      itemBuilder: (context, index) {
+                                        final logoP =
+                                            "${snapshot.data[index]["image"]}";
+                                        final nomP =
+                                            "${snapshot.data[index]["libelle"]}";
+                                        final idp =
+                                            "${snapshot.data[index]["id"]}";
+                                        final priceP =
+                                            "${snapshot.data[index]["price"]}";
+                                        final category =
+                                            "${snapshot.data[index]["category"]}";
+                                        final subtitle =
+                                            "${snapshot.data[index]["description"]}";
+                                        if (category == "A") {
+                                          return Card(
+                                            elevation: 30,
+                                            color: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(20)),
+                                            child: ListTile(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            Detailcmd(
+                                                              logoP: logoP,
+                                                              nomP: nomP,
+                                                              priceP: priceP,
+                                                              subtitle:
+                                                                  subtitle,
+                                                              idp: idp,
+                                                              userid: widget
+                                                                  .userid
+                                                                  .toString(),
+                                                              token:
+                                                                  widget.token,
+                                                            )));
+                                              },
+                                              leading: Image(
+                                                //image: AssetImage("assets/logoa.png"),
+                                                image: NetworkImage(
+                                                    "${snapshot.data[index]["image"]}"),
+                                                fit: BoxFit.cover,
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              title: Text(
+                                                "${snapshot.data[index]["libelle"]}",
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 15,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              subtitle: Text(
+                                                //"${widget.token}",
+                                                "${snapshot.data[index]["description"]}",
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 12,
+                                                  //fontWeight: FontWeight.bold
+                                                ),
+                                              ),
+                                              trailing: Text(
+                                                "${snapshot.data[index]["price"].toString()}F",
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                          );
+                                        } else {
+                                          return Text(
+                                            "",
+                                            style: TextStyle(fontSize: 0),
+                                          );
+                                        }
+                                      },
+                                    );
+                                  } else if (snapshot.hasError) {
+                                    return Text(
+                                        "Veuillez vérifier si votre portable est connecté");
+                                  }
+                                  return Center(
+                                      child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                        Colors.red),
+                                  ));
+                                }),
+                          ),
+                        )
+                      : Padding(
+                          padding: const EdgeInsets.only(
+                            top: 600,
+                          ),
+                          child: Container(
+                            height: 500,
+                            //width: 400,
+                            //color: Theme.of(context).primaryColor,
+                            child: FutureBuilder(
+                                future: getProduct(),
+                                builder: (context, snapshot) {
+                                  if (snapshot.hasData) {
+                                    return ListView.builder(
+                                      itemCount: snapshot.data == 0
+                                          ? null
+                                          : snapshot.data.length,
+                                      itemBuilder: (context, index) {
+                                        final logoP =
+                                            "${snapshot.data[index]["image"]}";
+                                        final nomP =
+                                            "${snapshot.data[index]["libelle"]}";
+                                        final idp =
+                                            "${snapshot.data[index]["id"]}";
+                                        final priceP =
+                                            "${snapshot.data[index]["price"]}";
+                                        final category =
+                                            "${snapshot.data[index]["category"]}";
+                                        final subtitle =
+                                            "${snapshot.data[index]["description"]}";
+                                        if (category == "A") {
+                                          return Card(
+                                            elevation: 30,
+                                            color: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(20)),
+                                            child: ListTile(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            Detailcmd(
+                                                              logoP: logoP,
+                                                              nomP: nomP,
+                                                              priceP: priceP,
+                                                              subtitle:
+                                                                  subtitle,
+                                                              idp: idp,
+                                                              userid: widget
+                                                                  .userid
+                                                                  .toString(),
+                                                              token:
+                                                                  widget.token,
+                                                            )));
+                                              },
+                                              leading: Image(
+                                                //image: AssetImage("assets/logoa.png"),
+                                                image: NetworkImage(
+                                                    "${snapshot.data[index]["image"]}"),
+                                                fit: BoxFit.cover,
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              title: Text(
+                                                "${snapshot.data[index]["libelle"]}",
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 15,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              subtitle: Text(
+                                                //"${widget.token}",
+                                                "${snapshot.data[index]["description"]}",
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 12,
+                                                  //fontWeight: FontWeight.bold
+                                                ),
+                                              ),
+                                              trailing: Text(
+                                                "${snapshot.data[index]["price"].toString()}F",
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                          );
+                                        } else {
+                                          return Text(
+                                            "",
+                                            style: TextStyle(fontSize: 0),
+                                          );
+                                        }
+                                      },
+                                    );
+                                  } else if (snapshot.hasError) {
+                                    return Text(
+                                        "Veuillez vérifier si votre portable est connecté");
+                                  }
+                                  return Center(
+                                      child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                        Colors.red),
+                                  ));
+                                }),
+                          ),
+                        ),
             ),
           ],
         ),
