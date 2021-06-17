@@ -17,7 +17,7 @@ class Background extends StatelessWidget {
         alignment: Alignment.center,
         children: <Widget>[
           Image(
-            image: AssetImage("assets/cap1.jpeg"),
+            image: AssetImage("assets/logoa.png"),
             height: 500,
             width: 500,
             fit: BoxFit.cover,
