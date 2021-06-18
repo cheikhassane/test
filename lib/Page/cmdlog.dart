@@ -109,7 +109,13 @@ class _CmdLoginState extends State<CmdLogin> {
   }
 
   static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.height > 900;
+      MediaQuery.of(context).size.height <= 690;
+  //&& MediaQuery.of(context).size.width <= 400;
+
+  static bool isMobiles(BuildContext context) =>
+      MediaQuery.of(context).size.height <= 900 &&
+      MediaQuery.of(context).size.height >= 700;
+
   static bool isTablet(BuildContext context) =>
       MediaQuery.of(context).size.height > 700 &&
       MediaQuery.of(context).size.width < 1000;
@@ -152,7 +158,7 @@ class _CmdLoginState extends State<CmdLogin> {
         body: Stack(
           children: [
             Container(
-              child: isMobile(context) != true
+              child: isMobiles(context) == true
                   ? Container(
                       //height: size.height,
                       //width: size.width,
@@ -166,11 +172,11 @@ class _CmdLoginState extends State<CmdLogin> {
                       ),
                       //color: themeData.primaryColor,
                     )
-                  : isTablet(context) == true
+                  : isMobile(context) == true
                       ? Container(
                           //height: size.height,
                           //width: size.width,
-                          height: 360,
+                          height: 180,
                           width: size.width,
 
                           child: Image(
@@ -180,24 +186,38 @@ class _CmdLoginState extends State<CmdLogin> {
                           ),
                           //color: themeData.primaryColor,
                         )
-                      : Container(
-                          //height: size.height,
-                          //width: size.width,
-                          height: 560,
-                          width: size.width,
+                      : isTablet(context) == true
+                          ? Container(
+                              //height: size.height,
+                              //width: size.width,
+                              height: 360,
+                              width: size.width,
 
-                          child: Image(
-                            image: AssetImage("assets/accueil.jpeg"),
-                            fit: BoxFit.cover,
-                            // alignment: Alignment.bottomCenter,
-                          ),
-                          //color: themeData.primaryColor,
-                        ),
+                              child: Image(
+                                image: AssetImage("assets/accueil.jpeg"),
+                                fit: BoxFit.cover,
+                                // alignment: Alignment.bottomCenter,
+                              ),
+                              //color: themeData.primaryColor,
+                            )
+                          : Container(
+                              //height: size.height,
+                              //width: size.width,
+                              height: 560,
+                              width: size.width,
+
+                              child: Image(
+                                image: AssetImage("assets/accueil.jpeg"),
+                                fit: BoxFit.cover,
+                                // alignment: Alignment.bottomCenter,
+                              ),
+                              //color: themeData.primaryColor,
+                            ),
             ),
             // HomePageBackground(
             //     screenHeight: MediaQuery.of(context).size.height),
             Center(
-              child: isMobile(context) != true
+              child: isMobiles(context) == true
                   ? Padding(
                       padding: const EdgeInsets.only(bottom: 650, left: 270),
                       child: ClipRRect(
@@ -210,10 +230,10 @@ class _CmdLoginState extends State<CmdLogin> {
                         ),
                       ),
                     )
-                  : isTablet(context) == true
+                  : isMobile(context) == true
                       ? Padding(
                           padding:
-                              const EdgeInsets.only(bottom: 750, left: 670),
+                              const EdgeInsets.only(bottom: 450, left: 270),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(50),
                             child: Image(
@@ -224,19 +244,33 @@ class _CmdLoginState extends State<CmdLogin> {
                             ),
                           ),
                         )
-                      : Padding(
-                          padding:
-                              const EdgeInsets.only(bottom: 850, left: 770),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(50),
-                            child: Image(
-                              image: AssetImage("assets/logoa.png"),
-                              fit: BoxFit.cover,
-                              height: 100,
-                              width: 100,
+                      : isTablet(context) == true
+                          ? Padding(
+                              padding:
+                                  const EdgeInsets.only(bottom: 750, left: 670),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(50),
+                                child: Image(
+                                  image: AssetImage("assets/logoa.png"),
+                                  fit: BoxFit.cover,
+                                  height: 100,
+                                  width: 100,
+                                ),
+                              ),
+                            )
+                          : Padding(
+                              padding:
+                                  const EdgeInsets.only(bottom: 850, left: 770),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(50),
+                                child: Image(
+                                  image: AssetImage("assets/logoa.png"),
+                                  fit: BoxFit.cover,
+                                  height: 100,
+                                  width: 100,
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
               // Padding(
               //   padding: const EdgeInsets.only(bottom: 550, left: 270),
               //   child: ClipRRect(
@@ -295,17 +329,21 @@ class _CmdLoginState extends State<CmdLogin> {
                 //mainAxisAlignment: MainAxisAlignment.center,
                 //crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  isMobile(context) != true
+                  isMobiles(context) == true
                       ? Padding(
                           padding:
                               EdgeInsets.only(top: 310, left: 40, right: 40))
-                      : isTablet(context) == true
+                      : isMobile(context) == true
                           ? Padding(
                               padding: EdgeInsets.only(
-                                  top: 470, left: 40, right: 40))
-                          : Padding(
-                              padding: EdgeInsets.only(
-                                  top: 610, left: 40, right: 40)),
+                                  top: 250, left: 40, right: 40))
+                          : isTablet(context) == true
+                              ? Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 470, left: 40, right: 40))
+                              : Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 610, left: 40, right: 40)),
                   SizedBox(
                     height: size.height * 0.08,
                   ),

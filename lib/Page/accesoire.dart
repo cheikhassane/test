@@ -47,7 +47,12 @@ class _AccessoireState extends State<Accessoire> {
   }
 
   static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.height > 900;
+      MediaQuery.of(context).size.height <= 690;
+  //&& MediaQuery.of(context).size.width <= 400;
+
+  static bool isMobiles(BuildContext context) =>
+      MediaQuery.of(context).size.height <= 900 &&
+      MediaQuery.of(context).size.height >= 700;
 
   static bool isTablet(BuildContext context) =>
       MediaQuery.of(context).size.height > 700 &&
@@ -72,7 +77,7 @@ class _AccessoireState extends State<Accessoire> {
         body: Stack(
           children: [
             Container(
-              child: isMobile(context) != true
+              child: isMobiles(context) == true
                   ? Container(
                       //height: size.height,
                       //width: size.width,
@@ -86,11 +91,11 @@ class _AccessoireState extends State<Accessoire> {
                       ),
                       //color: themeData.primaryColor,
                     )
-                  : isTablet(context) == true
+                  : isMobile(context) == true
                       ? Container(
                           //height: size.height,
                           //width: size.width,
-                          height: 360,
+                          height: 180,
                           width: size.width,
 
                           child: Image(
@@ -100,24 +105,38 @@ class _AccessoireState extends State<Accessoire> {
                           ),
                           //color: themeData.primaryColor,
                         )
-                      : Container(
-                          //height: size.height,
-                          //width: size.width,
-                          height: 560,
-                          width: size.width,
+                      : isTablet(context) == true
+                          ? Container(
+                              //height: size.height,
+                              //width: size.width,
+                              height: 360,
+                              width: size.width,
 
-                          child: Image(
-                            image: AssetImage("assets/accueil.jpeg"),
-                            fit: BoxFit.cover,
-                            // alignment: Alignment.bottomCenter,
-                          ),
-                          //color: themeData.primaryColor,
-                        ),
+                              child: Image(
+                                image: AssetImage("assets/accueil.jpeg"),
+                                fit: BoxFit.cover,
+                                // alignment: Alignment.bottomCenter,
+                              ),
+                              //color: themeData.primaryColor,
+                            )
+                          : Container(
+                              //height: size.height,
+                              //width: size.width,
+                              height: 560,
+                              width: size.width,
+
+                              child: Image(
+                                image: AssetImage("assets/accueil.jpeg"),
+                                fit: BoxFit.cover,
+                                // alignment: Alignment.bottomCenter,
+                              ),
+                              //color: themeData.primaryColor,
+                            ),
             ),
             // HomePageBackground(
             //     screenHeight: MediaQuery.of(context).size.height),
             Center(
-              child: isMobile(context) != true
+              child: isMobiles(context) == true
                   ? Padding(
                       padding: const EdgeInsets.only(bottom: 650, left: 270),
                       child: ClipRRect(
@@ -130,10 +149,10 @@ class _AccessoireState extends State<Accessoire> {
                         ),
                       ),
                     )
-                  : isTablet(context) == true
+                  : isMobile(context) == true
                       ? Padding(
                           padding:
-                              const EdgeInsets.only(bottom: 750, left: 670),
+                              const EdgeInsets.only(bottom: 450, left: 270),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(50),
                             child: Image(
@@ -144,19 +163,33 @@ class _AccessoireState extends State<Accessoire> {
                             ),
                           ),
                         )
-                      : Padding(
-                          padding:
-                              const EdgeInsets.only(bottom: 850, left: 770),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(50),
-                            child: Image(
-                              image: AssetImage("assets/logoa.png"),
-                              fit: BoxFit.cover,
-                              height: 100,
-                              width: 100,
-                            ),
-                          ),
-                        ), // Padding(
+                      : isTablet(context) == true
+                          ? Padding(
+                              padding:
+                                  const EdgeInsets.only(bottom: 750, left: 670),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(50),
+                                child: Image(
+                                  image: AssetImage("assets/logoa.png"),
+                                  fit: BoxFit.cover,
+                                  height: 100,
+                                  width: 100,
+                                ),
+                              ),
+                            )
+                          : Padding(
+                              padding:
+                                  const EdgeInsets.only(bottom: 850, left: 770),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(50),
+                                child: Image(
+                                  image: AssetImage("assets/logoa.png"),
+                                  fit: BoxFit.cover,
+                                  height: 100,
+                                  width: 100,
+                                ),
+                              ),
+                            ), // Padding(
               //   padding: const EdgeInsets.only(bottom: 550, left: 270),
               //   child: ClipRRect(
               //     borderRadius: BorderRadius.circular(50),
@@ -224,7 +257,10 @@ class _AccessoireState extends State<Accessoire> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Accueil()));
+                                  builder: (context) => Accueil(
+                                        userid: widget.userid,
+                                        token: widget.token,
+                                      )));
                         },
                         child: Container(
                             child: Column(children: [
@@ -250,7 +286,10 @@ class _AccessoireState extends State<Accessoire> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Machine()));
+                                  builder: (context) => Machine(
+                                        userid: widget.userid,
+                                        token: widget.token,
+                                      )));
                         },
                         child: Container(
                             child: Column(children: [
@@ -295,7 +334,7 @@ class _AccessoireState extends State<Accessoire> {
               ),
             ),
             Center(
-              child: isMobile(context) != true
+              child: isMobiles(context) == true
                   ? Padding(
                       padding: const EdgeInsets.only(top: 410),
                       child: Container(
@@ -399,11 +438,11 @@ class _AccessoireState extends State<Accessoire> {
                             }),
                       ),
                     )
-                  : isTablet(context) == true
+                  : isMobile(context) == true
                       ? Padding(
-                          padding: const EdgeInsets.only(top: 510),
+                          padding: const EdgeInsets.only(top: 370),
                           child: Container(
-                            height: 400,
+                            height: 300,
                             //width: 400,
                             //color: Theme.of(context).primaryColor,
                             child: FutureBuilder(
@@ -509,115 +548,237 @@ class _AccessoireState extends State<Accessoire> {
                                 }),
                           ),
                         )
-                      : Padding(
-                          padding: const EdgeInsets.only(top: 600),
-                          child: Container(
-                            height: 500,
-                            //width: 400,
-                            //color: Theme.of(context).primaryColor,
-                            child: FutureBuilder(
-                                future: getProduct(),
-                                builder: (context, snapshot) {
-                                  if (snapshot.hasData) {
-                                    return ListView.builder(
-                                      itemCount: snapshot.data == 0
-                                          ? null
-                                          : snapshot.data.length,
-                                      itemBuilder: (context, index) {
-                                        final logoP =
-                                            "${snapshot.data[index]["image"]}";
-                                        final nomP =
-                                            "${snapshot.data[index]["libelle"]}";
-                                        final idp =
-                                            "${snapshot.data[index]["id"]}";
-                                        final priceP =
-                                            "${snapshot.data[index]["price"]}";
-                                        final category =
-                                            "${snapshot.data[index]["category"]}";
-                                        final subtitle =
-                                            "${snapshot.data[index]["description"]}";
-                                        if (category == "C") {
-                                          return Card(
-                                            elevation: 30,
-                                            color: Colors.white,
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(20)),
-                                            child: ListTile(
-                                              onTap: () {
-                                                Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            Detailcmd(
-                                                              logoP: logoP,
-                                                              nomP: nomP,
-                                                              priceP: priceP,
-                                                              subtitle:
-                                                                  subtitle,
-                                                              idp: idp,
-                                                              userid: widget
-                                                                  .userid
-                                                                  .toString(),
-                                                              token:
-                                                                  widget.token,
-                                                            )));
-                                              },
-                                              leading: Image(
-                                                //image: AssetImage("assets/logoa.png"),
-                                                image: NetworkImage(
-                                                    "${snapshot.data[index]["image"]}"),
-                                                fit: BoxFit.cover,
-                                                height: 50,
-                                                width: 50,
-                                              ),
-                                              title: Text(
-                                                "${snapshot.data[index]["libelle"]}",
-                                                style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 15,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              subtitle: Text(
-                                                //"${widget.token}",
-                                                "${snapshot.data[index]["description"]}",
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 12,
-                                                  //fontWeight: FontWeight.bold
+                      : isTablet(context) == true
+                          ? Padding(
+                              padding: const EdgeInsets.only(top: 510),
+                              child: Container(
+                                height: 400,
+                                //width: 400,
+                                //color: Theme.of(context).primaryColor,
+                                child: FutureBuilder(
+                                    future: getProduct(),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.hasData) {
+                                        return ListView.builder(
+                                          itemCount: snapshot.data == 0
+                                              ? null
+                                              : snapshot.data.length,
+                                          itemBuilder: (context, index) {
+                                            final logoP =
+                                                "${snapshot.data[index]["image"]}";
+                                            final nomP =
+                                                "${snapshot.data[index]["libelle"]}";
+                                            final idp =
+                                                "${snapshot.data[index]["id"]}";
+                                            final priceP =
+                                                "${snapshot.data[index]["price"]}";
+                                            final category =
+                                                "${snapshot.data[index]["category"]}";
+                                            final subtitle =
+                                                "${snapshot.data[index]["description"]}";
+                                            if (category == "C") {
+                                              return Card(
+                                                elevation: 30,
+                                                color: Colors.white,
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20)),
+                                                child: ListTile(
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder:
+                                                                (context) =>
+                                                                    Detailcmd(
+                                                                      logoP:
+                                                                          logoP,
+                                                                      nomP:
+                                                                          nomP,
+                                                                      priceP:
+                                                                          priceP,
+                                                                      subtitle:
+                                                                          subtitle,
+                                                                      idp: idp,
+                                                                      userid: widget
+                                                                          .userid
+                                                                          .toString(),
+                                                                      token: widget
+                                                                          .token,
+                                                                    )));
+                                                  },
+                                                  leading: Image(
+                                                    //image: AssetImage("assets/logoa.png"),
+                                                    image: NetworkImage(
+                                                        "${snapshot.data[index]["image"]}"),
+                                                    fit: BoxFit.cover,
+                                                    height: 50,
+                                                    width: 50,
+                                                  ),
+                                                  title: Text(
+                                                    "${snapshot.data[index]["libelle"]}",
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  subtitle: Text(
+                                                    //"${widget.token}",
+                                                    "${snapshot.data[index]["description"]}",
+                                                    style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontSize: 12,
+                                                      //fontWeight: FontWeight.bold
+                                                    ),
+                                                  ),
+                                                  trailing: Text(
+                                                    "${snapshot.data[index]["price"].toString()}F",
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
                                                 ),
-                                              ),
-                                              trailing: Text(
-                                                "${snapshot.data[index]["price"].toString()}F",
-                                                style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                            ),
-                                          );
-                                        } else {
-                                          return Text(
-                                            "",
-                                            style: TextStyle(fontSize: 0),
-                                          );
-                                        }
-                                      },
-                                    );
-                                  } else if (snapshot.hasError) {
-                                    return Text(
-                                        "Veuillez vérifier si votre portable est connecté");
-                                  }
-                                  return Center(
-                                      child: CircularProgressIndicator(
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                        Colors.red),
-                                  ));
-                                }),
-                          ),
-                        ),
+                                              );
+                                            } else {
+                                              return Text(
+                                                "",
+                                                style: TextStyle(fontSize: 0),
+                                              );
+                                            }
+                                          },
+                                        );
+                                      } else if (snapshot.hasError) {
+                                        return Text(
+                                            "Veuillez vérifier si votre portable est connecté");
+                                      }
+                                      return Center(
+                                          child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                                Colors.red),
+                                      ));
+                                    }),
+                              ),
+                            )
+                          : Padding(
+                              padding: const EdgeInsets.only(top: 600),
+                              child: Container(
+                                height: 500,
+                                //width: 400,
+                                //color: Theme.of(context).primaryColor,
+                                child: FutureBuilder(
+                                    future: getProduct(),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.hasData) {
+                                        return ListView.builder(
+                                          itemCount: snapshot.data == 0
+                                              ? null
+                                              : snapshot.data.length,
+                                          itemBuilder: (context, index) {
+                                            final logoP =
+                                                "${snapshot.data[index]["image"]}";
+                                            final nomP =
+                                                "${snapshot.data[index]["libelle"]}";
+                                            final idp =
+                                                "${snapshot.data[index]["id"]}";
+                                            final priceP =
+                                                "${snapshot.data[index]["price"]}";
+                                            final category =
+                                                "${snapshot.data[index]["category"]}";
+                                            final subtitle =
+                                                "${snapshot.data[index]["description"]}";
+                                            if (category == "C") {
+                                              return Card(
+                                                elevation: 30,
+                                                color: Colors.white,
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20)),
+                                                child: ListTile(
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder:
+                                                                (context) =>
+                                                                    Detailcmd(
+                                                                      logoP:
+                                                                          logoP,
+                                                                      nomP:
+                                                                          nomP,
+                                                                      priceP:
+                                                                          priceP,
+                                                                      subtitle:
+                                                                          subtitle,
+                                                                      idp: idp,
+                                                                      userid: widget
+                                                                          .userid
+                                                                          .toString(),
+                                                                      token: widget
+                                                                          .token,
+                                                                    )));
+                                                  },
+                                                  leading: Image(
+                                                    //image: AssetImage("assets/logoa.png"),
+                                                    image: NetworkImage(
+                                                        "${snapshot.data[index]["image"]}"),
+                                                    fit: BoxFit.cover,
+                                                    height: 50,
+                                                    width: 50,
+                                                  ),
+                                                  title: Text(
+                                                    "${snapshot.data[index]["libelle"]}",
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  subtitle: Text(
+                                                    //"${widget.token}",
+                                                    "${snapshot.data[index]["description"]}",
+                                                    style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontSize: 12,
+                                                      //fontWeight: FontWeight.bold
+                                                    ),
+                                                  ),
+                                                  trailing: Text(
+                                                    "${snapshot.data[index]["price"].toString()}F",
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ),
+                                              );
+                                            } else {
+                                              return Text(
+                                                "",
+                                                style: TextStyle(fontSize: 0),
+                                              );
+                                            }
+                                          },
+                                        );
+                                      } else if (snapshot.hasError) {
+                                        return Text(
+                                            "Veuillez vérifier si votre portable est connecté");
+                                      }
+                                      return Center(
+                                          child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                                Colors.red),
+                                      ));
+                                    }),
+                              ),
+                            ),
             ),
           ],
         ),
