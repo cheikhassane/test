@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:dakar_cafe_express/Page/accesoire.dart';
-//import 'package:dakar_cafe_express/Page/bg.dart';
 import 'package:dakar_cafe_express/Page/machine.dart';
 import 'package:dakar_cafe_express/Page/mydrawer.dart';
 import 'package:flutter/material.dart';
@@ -95,7 +94,6 @@ class _AccueilState extends State<Accueil> {
                       Container(
                         height: 100,
                         color: Colors.red.shade700,
-                        //color: Colors.deepOrange[700],
                         child: Center(
                           child: Column(
                             children: [
@@ -131,7 +129,6 @@ class _AccueilState extends State<Accueil> {
                       Container(
                         height: 90,
                         color: Colors.red.shade900,
-                        //color: Colors.deepOrange[900],
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -377,7 +374,6 @@ class _AccueilState extends State<Accueil> {
                           Container(
                             height: 90,
                             color: Colors.red.shade900,
-                            //color: Colors.deepOrange[900],
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [

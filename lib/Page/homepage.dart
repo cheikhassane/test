@@ -1,7 +1,4 @@
 import 'package:dakar_cafe_express/Page/accueil.dart';
-//import 'package:dakar_cafe_express/Page/background.dart';
-//import 'package:dakar_cafe_express/Page/test.dart';
-//import 'package:dakar_cafe_express/Page/login.dart';
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
 
@@ -56,7 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           color: Colors.white),
                     ),
                     image: Image(image: AssetImage("assets/logoa.png")),
-                    //backgroundColor: Background(Color: Colors.white,),
                     loaderColor: Colors.white,
                   )
                 : contraints.maxWidth > 1000
@@ -77,7 +73,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: Colors.white),
                         ),
                         image: Image(image: AssetImage("assets/logoa.png")),
-                        //backgroundColor: Background(Color: Colors.white,),
                         loaderColor: Colors.white,
                       )
                     : new SplashScreen(
@@ -132,26 +127,3 @@ class _MyHomePageState extends State<MyHomePage> {
         );
   }
 }
-
-// CustomScrollView(
-//           slivers: <Widget>[
-//             SliverAppBar(
-//               floating: false,
-//               expandedHeight: 300,
-//               flexibleSpace: FlexibleSpaceBar(
-//                 titlePadding: EdgeInsets.only(left: 20),
-//                 title: Text(
-//                   widget.title,
-//                   style: TextStyle(color: Colors.white, fontSize: 20),
-//                 ),
-//                 background: Image.asset(
-//                   "assets/Icone-.png",
-//                   fit: BoxFit.cover,
-//                 ),
-//               ),
-//               //backgroundColor: Colors.black,
-//               elevation: 10,
-//             ),
-
-//           ],
-//         ),
