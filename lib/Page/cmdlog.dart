@@ -267,7 +267,7 @@ class _CmdLoginState extends State<CmdLogin> {
                           onClicked: () => _sendCmd(
                               widget.selectedCounter, int.parse(widget.idp))),
                       SizedBox(
-                        height: 200,
+                        height: 100,
                       ),
                     ],
                   )
