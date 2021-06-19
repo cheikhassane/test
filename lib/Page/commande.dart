@@ -136,7 +136,7 @@ class _CommandeState extends State<Commande> {
         ),
         body: SafeArea(child: LayoutBuilder(
           builder: (context, contraints) {
-            return contraints.maxWidth < 450
+            return contraints.maxWidth < 450 && contraints.maxWidth < 1200
                 ? Column(
                     children: [
                       Container(
@@ -293,7 +293,7 @@ class _CommandeState extends State<Commande> {
                       ),
                     ],
                   )
-                : contraints.maxWidth < 800
+                : contraints.maxWidth > 1000
                     ? Column(
                         children: [
                           Container(

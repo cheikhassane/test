@@ -67,7 +67,7 @@ class _MachineState extends State<Machine> {
         )),
         body: new SafeArea(child: LayoutBuilder(
           builder: (context, contraints) {
-            return contraints.maxWidth < 450
+            return contraints.maxWidth < 450 && contraints.maxWidth < 1200
                 ? Column(
                     children: [
                       Container(
@@ -313,7 +313,7 @@ class _MachineState extends State<Machine> {
                       ),
                     ],
                   )
-                : contraints.maxWidth < 800
+                : contraints.maxWidth > 1000
                     ? Column(
                         children: [
                           Container(

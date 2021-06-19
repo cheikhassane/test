@@ -1,5 +1,5 @@
 import 'package:dakar_cafe_express/Page/accueil.dart';
-import 'package:dakar_cafe_express/Page/background.dart';
+//import 'package:dakar_cafe_express/Page/background.dart';
 //import 'package:dakar_cafe_express/Page/test.dart';
 //import 'package:dakar_cafe_express/Page/login.dart';
 import 'package:flutter/material.dart';
@@ -36,23 +36,72 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
         theme: ThemeData.light(),
         debugShowCheckedModeBanner: false,
-        home: Background(
-          child: new SplashScreen(
-            photoSize: 200.0,
-            seconds: 7,
-            navigateAfterSeconds: new Accueil(),
-            title: new Text(
-              'Bienvenue chez Dakar Café Express',
-              style: new TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.0,
-                  color: Colors.black),
-            ),
-            image: Image(image: AssetImage("assets/logoa.png")),
-            //backgroundColor: Background(Color: Colors.white,),
-            loaderColor: Colors.red,
-          ),
-        )
+        home: SafeArea(child: LayoutBuilder(
+          builder: (context, contraints) {
+            return contraints.maxWidth < 450 && contraints.maxWidth < 1200
+                ? new SplashScreen(
+                    gradientBackground: LinearGradient(colors: [
+                      Colors.red.shade700,
+                      Colors.red.shade500,
+                      Colors.red.shade300
+                    ]),
+                    photoSize: 200.0,
+                    seconds: 7,
+                    navigateAfterSeconds: new Accueil(),
+                    title: new Text(
+                      'Bienvenue chez Dakar Café Express',
+                      style: new TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.0,
+                          color: Colors.white),
+                    ),
+                    image: Image(image: AssetImage("assets/logoa.png")),
+                    //backgroundColor: Background(Color: Colors.white,),
+                    loaderColor: Colors.white,
+                  )
+                : contraints.maxWidth > 1000
+                    ? new SplashScreen(
+                        gradientBackground: LinearGradient(colors: [
+                          Colors.red.shade700,
+                          Colors.red.shade500,
+                          Colors.red.shade300
+                        ]),
+                        photoSize: 200.0,
+                        seconds: 7,
+                        navigateAfterSeconds: new Accueil(),
+                        title: new Text(
+                          'Bienvenue chez Dakar Café Express',
+                          style: new TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.0,
+                              color: Colors.white),
+                        ),
+                        image: Image(image: AssetImage("assets/logoa.png")),
+                        //backgroundColor: Background(Color: Colors.white,),
+                        loaderColor: Colors.white,
+                      )
+                    : new SplashScreen(
+                        gradientBackground: LinearGradient(colors: [
+                          Colors.red.shade700,
+                          Colors.red.shade500,
+                          Colors.red.shade300
+                        ]),
+                        photoSize: 100.0,
+                        seconds: 7,
+                        navigateAfterSeconds: new Accueil(),
+                        title: new Text(
+                          'Bienvenue chez Dakar Café Express',
+                          style: new TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15.0,
+                              color: Colors.white),
+                        ),
+                        image: Image(image: AssetImage("assets/logoa.png")),
+                        //backgroundColor: Background(Color: Colors.white,),
+                        loaderColor: Colors.white,
+                      );
+          },
+        ))
         //Scaffold(
         // appBar: AppBar(
         //   toolbarHeight: 35,
