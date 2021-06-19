@@ -55,8 +55,13 @@ class _AccessoireState extends State<Accessoire> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          toolbarHeight: 35,
+          toolbarHeight: 45,
           backgroundColor: Colors.black87,
+          actions: [
+            Image(
+              image: AssetImage("assets/logoa.png"),
+            ),
+          ],
         ),
         drawer: new Drawer(
             child: Mydrawer(
