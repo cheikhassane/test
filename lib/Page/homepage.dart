@@ -1,6 +1,6 @@
 import 'package:dakar_cafe_express/Page/accueil.dart';
 import 'package:dakar_cafe_express/Page/background.dart';
-import 'package:dakar_cafe_express/Page/test.dart';
+//import 'package:dakar_cafe_express/Page/test.dart';
 //import 'package:dakar_cafe_express/Page/login.dart';
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: new SplashScreen(
             photoSize: 200.0,
             seconds: 7,
-            navigateAfterSeconds: new Test(),
+            navigateAfterSeconds: new Accueil(),
             title: new Text(
               'Bienvenue chez Dakar Café Express',
               style: new TextStyle(

@@ -79,13 +79,8 @@ class _DetailcmdState extends State<Detailcmd> {
 
   @override
   Widget build(BuildContext context) {
-    // final productId = widget.idProduct;
-    //final name = widget.userid;
     Size size = MediaQuery.of(context).size;
-    //final idpro = widget.idp;
-    //  user.forEach((f){
-    //   sumPrice += int.parse(f.widget.selectItemPrice.substring(0,3));
-    // });
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -99,341 +94,821 @@ class _DetailcmdState extends State<Detailcmd> {
         ),
         centerTitle: true,
         actions: [Image(image: AssetImage("assets/logoa.png"))],
-        // leading: Image(image: AssetImage("assets/Icone-.png")),
       ),
-      // drawer: Drawer(
-      //     child: new ListView(
-      //   children: [
-      //     new UserAccountsDrawerHeader(
-      //       accountName: name == null ? null : Text(name),
-      //       accountEmail: Text(""),
-      //       currentAccountPicture: new CircleAvatar(
-      //         backgroundColor: Colors.transparent,
-      //         child: Image(
-      //           image: AssetImage("assets/logoa.png"),
-      //           fit: BoxFit.cover,
-      //           height: 100,
-      //           width: 100,
-      //         ),
-      //         //Text("A"),
-      //       ),
-      //     ),
-      //     // ListTile(
-      //     //   title: Text("Connexion"),
-      //     //   trailing: Icon(Icons.person),
-      //     //   onTap: () {
-      //     //     Navigator.push(
-      //     //         context, MaterialPageRoute(builder: (context) => Login()));
-      //     //   },
-      //     // ),
-      //     ListTile(
-      //       title: Text("Créer compte"),
-      //       trailing: Icon(Icons.add),
-      //       onTap: () {
-      //         // Navigator.of(context).pop();
-      //         // Scaffold.of(context).showSnackBar(new SnackBar(
-      //         //   content: new Text("you click me "),
-      //         //   duration: new Duration(seconds: 4),
-      //         // ));
-      //         Navigator.push(
-      //             context, MaterialPageRoute(builder: (context) => Adduser()));
-      //       },
-      //     ),
-      //     ListTile(
-      //       title: name == null ? Text("Connexion") : Text("Deconnexion"),
-      //       trailing: Icon(Icons.outbox),
-      //       onTap: () {
-      //         Navigator.push(
-      //             context, MaterialPageRoute(builder: (context) => Accueil()));
-      //       },
-      //     ),
-      //   ],
-      // )
-      //     //Mydrawer(userid: widget.userid)
-      //     ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          // Expanded(
-          //   flex: 1,
-          //   child: Align(
-          //     alignment: Alignment.centerLeft,
-          //     child: IconButton(
-          //       icon: Icon(Icons.chevron_left),
-          //       onPressed: () {
-          //         setState(() {
-          //           // containerHeight = 500.4545454545455;
-          //           // _borderRadiusGeometry = BorderRadius.only(
-          //           //   bottomLeft: Radius.circular(32),
-          //           //   bottomRight: Radius.circular(32),
-          //           // );
-          //           // selectedTrigger = !selectedTrigger;
-          //         });
-          //       },
-          //     ),
-          //   ),
-          // ),
-          Expanded(
-            flex: 4,
-            child: Hero(
-                tag: "cafe",
-                child: Container(
-                  padding: EdgeInsets.only(left: 16, right: 16, top: 10),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      //image: AssetImage("assets/logoa.png"),
-                      image: NetworkImage(widget.logoP),
-                    ),
-                  ),
-                )
-                /*
-                            child: Image.network(selectedPain.imgPath, 
-                            width: 150, height: 140, 
-                            alignment: Alignment.center,
-                            ),*/
-
-                ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 16, left: 16, right: 24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    widget.nomP,
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Text(
-                    widget.subtitle,
-                    style: TextStyle(color: Colors.black87),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    height: 38,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
-                      border: Border.all(color: Colors.black),
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        Expanded(
-                          flex: 1,
-                          child: InkWell(
-                            onTap: () {
-                              setState(() {
-                                selectedCounter--;
-                                sumPriceRm();
-                                // if (selectedCounter < 1) {
-                                //   print("under 1 blocking");
-                                // } else {
-                                //   selectedCounter--;
-                                //   sumPriceRm();
-                                //   //user.remove(user);
-                                // }
-                              });
-                            },
-                            child: Center(
-                              child: Icon(
-                                Icons.remove,
-                                color: Colors.black,
+      body: new SafeArea(
+        child: LayoutBuilder(
+          builder: (context, contraints) {
+            return contraints.maxWidth < 450
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Expanded(
+                        flex: 4,
+                        child: Hero(
+                            tag: "cafe",
+                            child: Container(
+                              padding:
+                                  EdgeInsets.only(left: 16, right: 16, top: 10),
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: NetworkImage(widget.logoP),
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            child: Center(
-                                child: Text(
-                              selectedCounter.toString(),
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black),
                             )),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: InkWell(
-                            onTap: () {
-                              setState(() {
-                                // if (selectedCounter >= 1) {
-                                //   // print("under 1 blocking");
-                                //   selectedCounter++;
-                                //   sumPriceadd();
-                                // } else {
-                                //   print("under 1 blocking");
-                                //   // selectedCounter++;
-                                //   // sumPriceadd();
-                                //   //user.remove(user);
-                                // }
-                                selectedCounter++;
-                                sumPriceadd();
-                                //user.add(user);
-                              });
-                            },
-                            child: Center(
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Spacer(),
-                  Text(
-                    "Total : $sum F",
-                    style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          // Expanded(
-          //   flex: 3,
-          //   child: Column(
-          //     crossAxisAlignment: CrossAxisAlignment.start,
-          //     children: <Widget>[
-          //       //Padding(padding: EdgeInsets.only(right: 300.0)),
-          //       // Container(
-          //       //   padding: EdgeInsets.only(left: 16, right: 16, top: 10),
-          //       //   child: Text(
-          //       //     "Description",
-          //       //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          //       //   ),
-          //       // ),
-          //       // SizedBox(
-          //       //   height: 8,
-          //       // ),
-          //       // SingleChildScrollView(
-          //       //   child: Container(
-          //       //     padding: EdgeInsets.only(left: 16, right: 16, top: 16),
-          //       //     height: 70,
-          //       //     decoration: BoxDecoration(
-          //       //       gradient: LinearGradient(
-          //       //         colors: [Colors.black, Colors.white.withOpacity(0.8)],
-          //       //         end: Alignment.center,
-          //       //         stops: [0.0, 0.5],
-          //       //       ),
-          //       //     ),
-          //       //     child: Text(
-          //       //         "La commande que vous avez choisie est fait par ${widget.subtitle}"
-          //       //         " en respectant toutes les mesures d'hygéne,"
-          //       //         " nous somme à votre disposition pour plus de détails."),
-          //       //   ),
-          //       // ),
-          //     ],
-          //   ),
-          // ),
-          Expanded(
-            flex: 4,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  //Text(widget.token),
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        user.add(user);
-                      });
-                    },
-                    child: Center(
-                      child: Container(
-                        // height: 64,
-                        // width: 240,
-                        margin: EdgeInsets.symmetric(vertical: 10),
-                        width: size.width * 0.8,
-                        child: Center(
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(29),
-                            child: FlatButton(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 20, horizontal: 40),
-                              color: Colors.black,
-                              onPressed: () {
-                                if (selectedCounter >= 1) {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => Commande(
-                                            idp: widget.idp,
-                                            userid: widget.userid,
-                                            token: widget.token,
-                                            sum: sum,
-                                            nomP: widget.nomP,
-                                            subtitle: widget.subtitle,
-                                            selectedCounter: selectedCounter,
-                                            logoP: widget.logoP,
-                                          )));
-                                } else {
-                                  print("invalide");
-                                  displayDialog(
-                                      context,
-                                      "Vérifier votre saisie",
-                                      "Ajouter au moins une commande sur ce produit");
-                                }
-                              },
-                              child: Text(
-                                "Commander",
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              top: 16, left: 16, right: 24),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                widget.nomP,
                                 style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
+                                    fontSize: 14,
+                                    color: Colors.black,
                                     fontWeight: FontWeight.bold),
                               ),
-                            ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                                widget.subtitle,
+                                style: TextStyle(color: Colors.black87),
+                              ),
+                            ],
                           ),
-                          // RaisedButton(
-                          //   child: Text(
-                          //     "Valider Commander",
-                          //     style: TextStyle(
-                          //       color: Colors.black,
-                          //       fontSize: 18,
-                          //       fontWeight: FontWeight.bold,
-                          //     ),
-                          //   ),
-                          //   onPressed: () {
-                          //     Navigator.of(context).push(MaterialPageRoute(
-                          //         builder: (context) => Commande(
-                          //               sum: sum,
-                          //               selectedCounter: selectedCounter,
-                          //               productId: productId,
-                          //               idBoul: idBoul,
-                          //             )));
-                          //   },
-                          // ),
                         ),
                       ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+                      Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                height: 38,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(24),
+                                  border: Border.all(color: Colors.black),
+                                ),
+                                child: Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      flex: 1,
+                                      child: InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            selectedCounter--;
+                                            sumPriceRm();
+                                            // if (selectedCounter < 1) {
+                                            //   print("under 1 blocking");
+                                            // } else {
+                                            //   selectedCounter--;
+                                            //   sumPriceRm();
+                                            //   //user.remove(user);
+                                            // }
+                                          });
+                                        },
+                                        child: Center(
+                                          child: Icon(
+                                            Icons.remove,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Container(
+                                        child: Center(
+                                            child: Text(
+                                          selectedCounter.toString(),
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black),
+                                        )),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            // if (selectedCounter >= 1) {
+                                            //   // print("under 1 blocking");
+                                            //   selectedCounter++;
+                                            //   sumPriceadd();
+                                            // } else {
+                                            //   print("under 1 blocking");
+                                            //   // selectedCounter++;
+                                            //   // sumPriceadd();
+                                            //   //user.remove(user);
+                                            // }
+                                            selectedCounter++;
+                                            sumPriceadd();
+                                            //user.add(user);
+                                          });
+                                        },
+                                        child: Center(
+                                          child: Icon(
+                                            Icons.add,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Spacer(),
+                              Text(
+                                "Total : $sum F",
+                                style: TextStyle(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      // Expanded(
+                      //   flex: 3,
+                      //   child: Column(
+                      //     crossAxisAlignment: CrossAxisAlignment.start,
+                      //     children: <Widget>[
+                      //       //Padding(padding: EdgeInsets.only(right: 300.0)),
+                      //       // Container(
+                      //       //   padding: EdgeInsets.only(left: 16, right: 16, top: 10),
+                      //       //   child: Text(
+                      //       //     "Description",
+                      //       //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      //       //   ),
+                      //       // ),
+                      //       // SizedBox(
+                      //       //   height: 8,
+                      //       // ),
+                      //       // SingleChildScrollView(
+                      //       //   child: Container(
+                      //       //     padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+                      //       //     height: 70,
+                      //       //     decoration: BoxDecoration(
+                      //       //       gradient: LinearGradient(
+                      //       //         colors: [Colors.black, Colors.white.withOpacity(0.8)],
+                      //       //         end: Alignment.center,
+                      //       //         stops: [0.0, 0.5],
+                      //       //       ),
+                      //       //     ),
+                      //       //     child: Text(
+                      //       //         "La commande que vous avez choisie est fait par ${widget.subtitle}"
+                      //       //         " en respectant toutes les mesures d'hygéne,"
+                      //       //         " nous somme à votre disposition pour plus de détails."),
+                      //       //   ),
+                      //       // ),
+                      //     ],
+                      //   ),
+                      // ),
+                      Expanded(
+                        flex: 4,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              //Text(widget.token),
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    user.add(user);
+                                  });
+                                },
+                                child: Center(
+                                  child: Container(
+                                    // height: 64,
+                                    // width: 240,
+                                    margin: EdgeInsets.symmetric(vertical: 10),
+                                    width: size.width * 0.8,
+                                    child: Center(
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(29),
+                                        child: FlatButton(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 20, horizontal: 40),
+                                          color: Colors.black,
+                                          onPressed: () {
+                                            if (selectedCounter >= 1) {
+                                              Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          Commande(
+                                                            idp: widget.idp,
+                                                            userid:
+                                                                widget.userid,
+                                                            token: widget.token,
+                                                            sum: sum,
+                                                            nomP: widget.nomP,
+                                                            subtitle:
+                                                                widget.subtitle,
+                                                            selectedCounter:
+                                                                selectedCounter,
+                                                            logoP: widget.logoP,
+                                                          )));
+                                            } else {
+                                              print("invalide");
+                                              displayDialog(
+                                                  context,
+                                                  "Vérifier votre saisie",
+                                                  "Ajouter au moins une commande sur ce produit");
+                                            }
+                                          },
+                                          child: Text(
+                                            "Commander",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ),
+                                      // RaisedButton(
+                                      //   child: Text(
+                                      //     "Valider Commander",
+                                      //     style: TextStyle(
+                                      //       color: Colors.black,
+                                      //       fontSize: 18,
+                                      //       fontWeight: FontWeight.bold,
+                                      //     ),
+                                      //   ),
+                                      //   onPressed: () {
+                                      //     Navigator.of(context).push(MaterialPageRoute(
+                                      //         builder: (context) => Commande(
+                                      //               sum: sum,
+                                      //               selectedCounter: selectedCounter,
+                                      //               productId: productId,
+                                      //               idBoul: idBoul,
+                                      //             )));
+                                      //   },
+                                      // ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                : contraints.maxWidth < 800
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Expanded(
+                            flex: 4,
+                            child: Hero(
+                                tag: "cafe",
+                                child: Container(
+                                  padding: EdgeInsets.only(
+                                      left: 16, right: 16, top: 10),
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: NetworkImage(widget.logoP),
+                                    ),
+                                  ),
+                                )),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 16, left: 16, right: 24),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    widget.nomP,
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  Text(
+                                    widget.subtitle,
+                                    style: TextStyle(color: Colors.black87),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Container(
+                                    height: 38,
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(24),
+                                      border: Border.all(color: Colors.black),
+                                    ),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: InkWell(
+                                            onTap: () {
+                                              setState(() {
+                                                selectedCounter--;
+                                                sumPriceRm();
+                                                // if (selectedCounter < 1) {
+                                                //   print("under 1 blocking");
+                                                // } else {
+                                                //   selectedCounter--;
+                                                //   sumPriceRm();
+                                                //   //user.remove(user);
+                                                // }
+                                              });
+                                            },
+                                            child: Center(
+                                              child: Icon(
+                                                Icons.remove,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            child: Center(
+                                                child: Text(
+                                              selectedCounter.toString(),
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black),
+                                            )),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 1,
+                                          child: InkWell(
+                                            onTap: () {
+                                              setState(() {
+                                                // if (selectedCounter >= 1) {
+                                                //   // print("under 1 blocking");
+                                                //   selectedCounter++;
+                                                //   sumPriceadd();
+                                                // } else {
+                                                //   print("under 1 blocking");
+                                                //   // selectedCounter++;
+                                                //   // sumPriceadd();
+                                                //   //user.remove(user);
+                                                // }
+                                                selectedCounter++;
+                                                sumPriceadd();
+                                                //user.add(user);
+                                              });
+                                            },
+                                            child: Center(
+                                              child: Icon(
+                                                Icons.add,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  Text(
+                                    "Total : $sum F",
+                                    style: TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          // Expanded(
+                          //   flex: 3,
+                          //   child: Column(
+                          //     crossAxisAlignment: CrossAxisAlignment.start,
+                          //     children: <Widget>[
+                          //       //Padding(padding: EdgeInsets.only(right: 300.0)),
+                          //       // Container(
+                          //       //   padding: EdgeInsets.only(left: 16, right: 16, top: 10),
+                          //       //   child: Text(
+                          //       //     "Description",
+                          //       //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          //       //   ),
+                          //       // ),
+                          //       // SizedBox(
+                          //       //   height: 8,
+                          //       // ),
+                          //       // SingleChildScrollView(
+                          //       //   child: Container(
+                          //       //     padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+                          //       //     height: 70,
+                          //       //     decoration: BoxDecoration(
+                          //       //       gradient: LinearGradient(
+                          //       //         colors: [Colors.black, Colors.white.withOpacity(0.8)],
+                          //       //         end: Alignment.center,
+                          //       //         stops: [0.0, 0.5],
+                          //       //       ),
+                          //       //     ),
+                          //       //     child: Text(
+                          //       //         "La commande que vous avez choisie est fait par ${widget.subtitle}"
+                          //       //         " en respectant toutes les mesures d'hygéne,"
+                          //       //         " nous somme à votre disposition pour plus de détails."),
+                          //       //   ),
+                          //       // ),
+                          //     ],
+                          //   ),
+                          // ),
+                          Expanded(
+                            flex: 4,
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  //Text(widget.token),
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        user.add(user);
+                                      });
+                                    },
+                                    child: Center(
+                                      child: Container(
+                                        // height: 64,
+                                        // width: 240,
+                                        margin:
+                                            EdgeInsets.symmetric(vertical: 10),
+                                        width: size.width * 0.8,
+                                        child: Center(
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(29),
+                                            child: FlatButton(
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 20, horizontal: 40),
+                                              color: Colors.black,
+                                              onPressed: () {
+                                                if (selectedCounter >= 1) {
+                                                  Navigator.of(context).push(
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              Commande(
+                                                                idp: widget.idp,
+                                                                userid: widget
+                                                                    .userid,
+                                                                token: widget
+                                                                    .token,
+                                                                sum: sum,
+                                                                nomP:
+                                                                    widget.nomP,
+                                                                subtitle: widget
+                                                                    .subtitle,
+                                                                selectedCounter:
+                                                                    selectedCounter,
+                                                                logoP: widget
+                                                                    .logoP,
+                                                              )));
+                                                } else {
+                                                  print("invalide");
+                                                  displayDialog(
+                                                      context,
+                                                      "Vérifier votre saisie",
+                                                      "Ajouter au moins une commande sur ce produit");
+                                                }
+                                              },
+                                              child: Text(
+                                                "Commander",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 15,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                          ),
+                                          // RaisedButton(
+                                          //   child: Text(
+                                          //     "Valider Commander",
+                                          //     style: TextStyle(
+                                          //       color: Colors.black,
+                                          //       fontSize: 18,
+                                          //       fontWeight: FontWeight.bold,
+                                          //     ),
+                                          //   ),
+                                          //   onPressed: () {
+                                          //     Navigator.of(context).push(MaterialPageRoute(
+                                          //         builder: (context) => Commande(
+                                          //               sum: sum,
+                                          //               selectedCounter: selectedCounter,
+                                          //               productId: productId,
+                                          //               idBoul: idBoul,
+                                          //             )));
+                                          //   },
+                                          // ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    : Row(
+                        //crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Expanded(
+                            flex: 4,
+                            child: Hero(
+                                tag: "cafe",
+                                child: Container(
+                                  padding: EdgeInsets.only(
+                                      left: 16, right: 16, top: 10),
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: NetworkImage(widget.logoP),
+                                    ),
+                                  ),
+                                )),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 100, left: 16, right: 24),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    widget.nomP,
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  // SizedBox(
+                                  //   height: 8,
+                                  // ),
+                                  Text(
+                                    widget.subtitle,
+                                    style: TextStyle(
+                                        color: Colors.black87, fontSize: 11),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 6,
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Container(
+                                    height: 38,
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(24),
+                                      border: Border.all(color: Colors.black),
+                                    ),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: InkWell(
+                                            onTap: () {
+                                              setState(() {
+                                                selectedCounter--;
+                                                sumPriceRm();
+                                                // if (selectedCounter < 1) {
+                                                //   print("under 1 blocking");
+                                                // } else {
+                                                //   selectedCounter--;
+                                                //   sumPriceRm();
+                                                //   //user.remove(user);
+                                                // }
+                                              });
+                                            },
+                                            child: Center(
+                                              child: Icon(
+                                                Icons.remove,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            child: Center(
+                                                child: Text(
+                                              selectedCounter.toString(),
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black),
+                                            )),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 1,
+                                          child: InkWell(
+                                            onTap: () {
+                                              setState(() {
+                                                // if (selectedCounter >= 1) {
+                                                //   // print("under 1 blocking");
+                                                //   selectedCounter++;
+                                                //   sumPriceadd();
+                                                // } else {
+                                                //   print("under 1 blocking");
+                                                //   // selectedCounter++;
+                                                //   // sumPriceadd();
+                                                //   //user.remove(user);
+                                                // }
+                                                selectedCounter++;
+                                                sumPriceadd();
+                                                //user.add(user);
+                                              });
+                                            },
+                                            child: Center(
+                                              child: Icon(
+                                                Icons.add,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  Text(
+                                    "Total : $sum F",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          // Expanded(
+                          //   flex: 3,
+                          //   child: Column(
+                          //     crossAxisAlignment: CrossAxisAlignment.start,
+                          //     children: <Widget>[
+                          //       //Padding(padding: EdgeInsets.only(right: 300.0)),
+                          //       // Container(
+                          //       //   padding: EdgeInsets.only(left: 16, right: 16, top: 10),
+                          //       //   child: Text(
+                          //       //     "Description",
+                          //       //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          //       //   ),
+                          //       // ),
+                          //       // SizedBox(
+                          //       //   height: 8,
+                          //       // ),
+                          //       // SingleChildScrollView(
+                          //       //   child: Container(
+                          //       //     padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+                          //       //     height: 70,
+                          //       //     decoration: BoxDecoration(
+                          //       //       gradient: LinearGradient(
+                          //       //         colors: [Colors.black, Colors.white.withOpacity(0.8)],
+                          //       //         end: Alignment.center,
+                          //       //         stops: [0.0, 0.5],
+                          //       //       ),
+                          //       //     ),
+                          //       //     child: Text(
+                          //       //         "La commande que vous avez choisie est fait par ${widget.subtitle}"
+                          //       //         " en respectant toutes les mesures d'hygéne,"
+                          //       //         " nous somme à votre disposition pour plus de détails."),
+                          //       //   ),
+                          //       // ),
+                          //     ],
+                          //   ),
+                          // ),
+                          Expanded(
+                            flex: 4,
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 115),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  //Text(widget.token),
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        user.add(user);
+                                      });
+                                    },
+                                    child: Center(
+                                      child: Container(
+                                        // height: 64,
+                                        // width: 240,
+                                        margin:
+                                            EdgeInsets.symmetric(vertical: 10),
+                                        width: size.width * 0.8,
+                                        child: Center(
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(29),
+                                            child: FlatButton(
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 20, horizontal: 40),
+                                              color: Colors.black,
+                                              onPressed: () {
+                                                if (selectedCounter >= 1) {
+                                                  Navigator.of(context).push(
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              Commande(
+                                                                idp: widget.idp,
+                                                                userid: widget
+                                                                    .userid,
+                                                                token: widget
+                                                                    .token,
+                                                                sum: sum,
+                                                                nomP:
+                                                                    widget.nomP,
+                                                                subtitle: widget
+                                                                    .subtitle,
+                                                                selectedCounter:
+                                                                    selectedCounter,
+                                                                logoP: widget
+                                                                    .logoP,
+                                                              )));
+                                                } else {
+                                                  print("invalide");
+                                                  displayDialog(
+                                                      context,
+                                                      "Vérifier votre saisie",
+                                                      "Ajouter au moins une commande sur ce produit");
+                                                }
+                                              },
+                                              child: Text(
+                                                "Commander",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 15,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                          ),
+                                          // RaisedButton(
+                                          //   child: Text(
+                                          //     "Valider Commander",
+                                          //     style: TextStyle(
+                                          //       color: Colors.black,
+                                          //       fontSize: 18,
+                                          //       fontWeight: FontWeight.bold,
+                                          //     ),
+                                          //   ),
+                                          //   onPressed: () {
+                                          //     Navigator.of(context).push(MaterialPageRoute(
+                                          //         builder: (context) => Commande(
+                                          //               sum: sum,
+                                          //               selectedCounter: selectedCounter,
+                                          //               productId: productId,
+                                          //               idBoul: idBoul,
+                                          //             )));
+                                          //   },
+                                          // ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+          },
+        ),
       ),
     );
   }
