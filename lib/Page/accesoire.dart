@@ -1,5 +1,4 @@
 import 'package:dakar_cafe_express/Page/accueil.dart';
-//import 'package:dakar_cafe_express/Page/bg.dart';
 import 'package:dakar_cafe_express/Page/machine.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -73,23 +72,16 @@ class _AccessoireState extends State<Accessoire> {
                 ? Column(
                     children: [
                       Container(
-                        //height: size.height,
-                        //width: size.width,
                         height: 150,
                         width: MediaQuery.of(context).size.width,
-                        //width: size.width,
-
                         child: Image(
                           image: AssetImage("assets/accueil.jpeg"),
                           fit: BoxFit.cover,
-                          // alignment: Alignment.bottomCenter,
                         ),
-                        //color: themeData.primaryColor,
                       ),
                       Container(
                         height: 100,
                         color: Colors.red.shade700,
-                        //color: Colors.deepOrange[700],
                         child: Center(
                           child: Column(
                             children: [
@@ -107,9 +99,7 @@ class _AccessoireState extends State<Accessoire> {
                                 style: TextStyle(
                                     fontSize: 12, color: Colors.white),
                               ),
-                              Spacer(
-                                  //flex: 3,
-                                  ),
+                              Spacer(),
                               Text(
                                 "Appeler au 772471414",
                                 style: TextStyle(
@@ -125,7 +115,6 @@ class _AccessoireState extends State<Accessoire> {
                       Container(
                         height: 90,
                         color: Colors.red.shade900,
-                        //color: Colors.deepOrange[900],
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -319,23 +308,16 @@ class _AccessoireState extends State<Accessoire> {
                     ? Column(
                         children: [
                           Container(
-                            //height: size.height,
-                            //width: size.width,
                             height: 350,
                             width: MediaQuery.of(context).size.width,
-                            //width: size.width,
-
                             child: Image(
                               image: AssetImage("assets/accueil.jpeg"),
                               fit: BoxFit.cover,
-                              // alignment: Alignment.bottomCenter,
                             ),
-                            //color: themeData.primaryColor,
                           ),
                           Container(
                             height: 100,
                             color: Colors.red.shade700,
-                            //color: Colors.deepOrange[700],
                             child: Center(
                               child: Column(
                                 children: [
@@ -570,8 +552,6 @@ class _AccessoireState extends State<Accessoire> {
                         children: [
                           Expanded(
                             child: Container(
-                              //height: size.height,
-                              //width: size.width,
                               height: 350,
                               width: 270,
 

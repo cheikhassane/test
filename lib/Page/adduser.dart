@@ -1,35 +1,15 @@
 import 'dart:convert';
-
-// import 'package:projecttest/PageOne.dart';
-//import 'package:dakar_cafe_express/Page/pagecafe.dart';
-//import 'package:dakar_cafe_express/Page/commande.dart';
 import 'package:dakar_cafe_express/Page/accueil.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
-// import 'package:projecttest/PageTwo.dart';
-//import 'package:projecttest/buttonWidget.dart';
-//import 'package:dakar_cafe_express/Page/login.dart';
 
-//https://67fd26fc2225.ngrok.io/users/ajout
-
-// {
-
-//         "phone": "776007070",
-//         "firstName": "dudu",
-//         "lastName": "ndiaye",
-//         "adresse": "km",
-//         "password":"user"
-//     }
-
-// import 'dart:convert';
 class Adduser extends StatefulWidget {
   @override
   _AdduserState createState() => _AdduserState();
 }
 
 class _AdduserState extends State<Adduser> {
-  // Future<Users> _futureGet;
   final _formKey = GlobalKey<FormState>();
   final TextEditingController ph = new TextEditingController();
   final TextEditingController firt = new TextEditingController();
@@ -39,7 +19,6 @@ class _AdduserState extends State<Adduser> {
 
   String username = '';
   String level = '';
-  // List data = [];
 
   void displayDialog(context, title, text) => showDialog(
       context: context,
@@ -50,8 +29,6 @@ class _AdduserState extends State<Adduser> {
                 FlatButton(
                   onPressed: () {
                     Navigator.pop(context);
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (context) => PageOne()));
                   },
                   child: Text("OK",
                       style: TextStyle(
@@ -60,8 +37,7 @@ class _AdduserState extends State<Adduser> {
                           fontWeight: FontWeight.bold)),
                 )
               ]));
-  // "http://localhost:3003/collecte3/"
-  // http://10.0.2.2:3003/collecte3/"
+
   Future<dynamic> _addUser(String phone, String firstName, String lastName,
       String adresse, String password) async {
     final http.Response response = await http.post(
@@ -89,56 +65,10 @@ class _AdduserState extends State<Adduser> {
     } else {
       displayDialog(context, "An error Occured",
           "No account was found matching that username and password");
-      // setState(() {
-      //   msg = "Login Failed";
-      // });
     }
 
-    // if (datauser.length == 0) {
-    //   displayDialog(context, "An error Occured",
-    //       "No account was found matching that username and password");
-    //   // setState(() {
-    //   //   msg = "Adduser Failed";
-    //   // });
-    // } else if (datauser[0]['level'] == 'admin') {
-    //   print("Welcome admin");
-    //   Navigator.push(
-    //       context,
-    //       MaterialPageRoute(
-    //           builder: (context) => new PageOne(
-    //                 username: username,
-    //                 level: level,
-    //               )));
-    // } else if (datauser[0]['level'] == 'member') {
-    //   print("Welcome member");
-    //   Navigator.push(
-    //       context,
-    //       MaterialPageRoute(
-    //           builder: (context) => PageTwo(
-    //                 username: username,
-    //                 level: level,
-    //               )));
-    // }
-    // setState(() {
-    //   username = datauser[0]['username'];
-    //   level = datauser[0]['level'];
-    // });
-    // if (response.body == "row") {
-    //   debugPrint(response.body);
-
-    //   //  return Users.fromJson(json.decode(response.body.toString()));
-    // } else if (response.body == "Aucun resultat trouver") {
-    //   displayDialog(context, "An error Occured",
-    //       "No account was found matching that username and password");
-    // }
     return datauser;
   }
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _addUser();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -164,25 +94,6 @@ class _AdduserState extends State<Adduser> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Text(
-              //   'Créer un compte',
-              //   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              // ),
-              // SizedBox(
-              //   height: 30,
-              // ),
-              // Image(
-              //   image: AssetImage("assets/logoa.png"),
-              //   height: 80,
-              //   width: 80,
-              // ),
-              // SizedBox(
-              //   height: 30,
-              // ),
-              // Icon(
-              //   Icons.login,
-              //   size: size.height * 0.07,
-              // ),
               SizedBox(
                 height: size.height * 0.15,
               ),
@@ -202,10 +113,6 @@ class _AdduserState extends State<Adduser> {
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                       hintText: 'Téléphone',
-                      // icon: Icon(
-                      //   Icons.person,
-                      //   color: Theme.of(context).primaryColor,
-                      // ),
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
@@ -223,7 +130,6 @@ class _AdduserState extends State<Adduser> {
                   width: size.width * 0.8,
                   decoration: BoxDecoration(
                     color: Colors.black38,
-                    //color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(29),
                   ),
                   child: TextFormField(
@@ -232,11 +138,6 @@ class _AdduserState extends State<Adduser> {
                     cursorColor: Colors.white,
                     decoration: InputDecoration(
                       hintText: 'Prénom ',
-                      // icon: Icon(
-                      //   Icons.lock,
-                      //   color: Theme.of(context).primaryColor,
-                      // ),
-                      //border: InputBorder.none
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
@@ -263,11 +164,6 @@ class _AdduserState extends State<Adduser> {
                     cursorColor: Colors.white,
                     decoration: InputDecoration(
                       hintText: 'Nom ',
-                      // icon: Icon(
-                      //   Icons.,
-                      //   color: Theme.of(context).primaryColor,
-                      // ),
-                      //border: InputBorder.none
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
@@ -294,11 +190,6 @@ class _AdduserState extends State<Adduser> {
                     cursorColor: Colors.white,
                     decoration: InputDecoration(
                       hintText: 'Adresse ',
-                      // icon: Icon(
-                      //   Icons.home,
-                      //   color: Theme.of(context).primaryColor,
-                      // ),
-                      //border: InputBorder.none
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
@@ -325,11 +216,6 @@ class _AdduserState extends State<Adduser> {
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
                       hintText: 'Mot de Passe ',
-                      // icon: Icon(
-                      //   Icons.lock,
-                      //   color: Theme.of(context).primaryColor,
-                      // ),
-                      //border: InputBorder.none
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
@@ -340,27 +226,6 @@ class _AdduserState extends State<Adduser> {
                   ),
                 ),
               ),
-              // Container(
-              //   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-              //   margin: EdgeInsets.symmetric(vertical: 10),
-              //   width: size.width * 0.8,
-              //   decoration: BoxDecoration(
-              //     color: Theme.of(context).primaryColor,
-              //     borderRadius: BorderRadius.circular(29),
-              //   ),
-              //   child: TextField(
-              //     controller: lev,
-              //     cursorColor: Colors.black,
-              //     decoration: InputDecoration(
-              //       hintText: 'level ',
-              //       icon: Icon(
-              //         Icons.lock,
-              //         color: Theme.of(context).primaryColor,
-              //       ),
-              //       //border: InputBorder.none
-              //     ),
-              //   ),
-              // ),
               SizedBox(
                 height: size.height * 0.02,
               ),
@@ -383,103 +248,10 @@ class _AdduserState extends State<Adduser> {
                           MaterialPageRoute(builder: (context) => Accueil()));
                     }
                   }),
-              //ButtonWidget(text: 'Adduser', onClicked: () => _addUser()),
-
-              // Text(
-              //   msg,
-              //   style: TextStyle(
-              //       fontWeight: FontWeight.bold, fontSize: 14, color: Colors.red),
-              // )
             ],
           ),
         ),
       ),
-      // body: Form(
-      //     child: (_futureGet)
-      //         ? Column(
-      //             mainAxisAlignment: MainAxisAlignment.center,
-      //             children: [
-      //               Text(
-      //                 "Connexion",
-      //                 style:
-      //                     TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-      //               ),
-      //               SizedBox(height: size.height * 0.05),
-      //               Container(
-      //                 margin: EdgeInsets.symmetric(vertical: 10),
-      //                 padding:
-      //                     EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      //                 width: size.width * 0.8,
-      //                 decoration: BoxDecoration(
-      //                     color: Colors.amberAccent,
-      //                     borderRadius: BorderRadius.circular(29)),
-      //                 child: TextField(
-      //                   controller: _textControllerUser,
-      //                   cursorColor: Colors.amber,
-      //                   decoration: InputDecoration(
-      //                     icon: Icon(
-      //                       Icons.person,
-      //                       color: Colors.amber,
-      //                     ),
-      //                     hintText: "username",
-      //                     border: InputBorder.none,
-      //                   ),
-      //                 ),
-      //               ),
-      //               Container(
-      //                 margin: EdgeInsets.symmetric(vertical: 10),
-      //                 padding:
-      //                     EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      //                 width: size.width * 0.8,
-      //                 decoration: BoxDecoration(
-      //                     color: Colors.amberAccent,
-      //                     borderRadius: BorderRadius.circular(29)),
-      //                 child: TextField(
-      //                   controller: _textControllerPass,
-      //                   cursorColor: Colors.amber,
-      //                   decoration: InputDecoration(
-      //                     icon: Icon(
-      //                       Icons.person,
-      //                       color: Colors.amber,
-      //                     ),
-      //                     hintText: "password",
-      //                     border: InputBorder.none,
-      //                   ),
-      //                 ),
-      //               ),
-      //               Container(
-      //                 margin: EdgeInsets.symmetric(vertical: 10),
-      //                 width: size.width * 0.8,
-      //                 child: ClipRRect(
-      //                   borderRadius: BorderRadius.circular(29),
-      //                   child: FlatButton(
-      //                       padding: EdgeInsets.symmetric(
-      //                           vertical: 20, horizontal: 40),
-      //                       color: Colors.amberAccent,
-      //                       onPressed: () {
-      //                         setState(() {
-      //                           _futureGet = _sendUser(_textControllerUser.text,
-      //                               _textControllerPass.text);
-      //                         });
-      //                       },
-      //                       child: Text(
-      //                         "Conexion",
-      //                         style: TextStyle(color: Colors.black),
-      //                       )),
-      //                 ),
-      //               ),
-      //             ],
-      //           )
-      //         : FutureBuilder(
-      //             future: _futureGet,
-      //             builder: (context, snapshot) {
-      //               if (snapshot.hasData) {
-      //                 return PageOne();
-      //               } else if (snapshot.hasError) {
-      //                 return Text("${snapshot.error}");
-      //               } else
-      //                 CircularProgressIndicator();
-      //             })),
     );
   }
 }

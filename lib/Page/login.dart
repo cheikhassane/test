@@ -7,8 +7,6 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'package:jwt_decoder/jwt_decoder.dart';
 
-//import 'mydrawer.dart';
-
 class Login extends StatefulWidget {
   //final int iduser;
   final String token;
@@ -231,14 +229,7 @@ class _LoginState extends State<Login> {
                     fontSize: 14,
                     color: Colors.red),
               ),
-              // Spacer(
-              //   flex: 3,
-              // ),
-              // Text(
-              //   msg,
-              //   style: TextStyle(
-              //       fontWeight: FontWeight.bold, fontSize: 14, color: Colors.red),
-              // )
+
               ButtonWidget(
                   text: "Créer un compte",
                   onClicked: () => Navigator.push(context,

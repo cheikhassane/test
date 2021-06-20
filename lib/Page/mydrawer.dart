@@ -1,6 +1,5 @@
 import 'package:dakar_cafe_express/Page/accueil.dart';
 import 'package:dakar_cafe_express/Page/adduser.dart';
-//import 'package:dakar_cafe_express/Page/login.dart';
 import 'package:flutter/material.dart';
 
 class Mydrawer extends StatefulWidget {
@@ -53,28 +52,12 @@ class _MydrawerState extends State<Mydrawer> {
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                       color: Colors.black)),
-          //Text("Créer compte",
-          //     style: TextStyle(
-          //         fontSize: 14,
-          //         fontWeight: FontWeight.bold,
-          //         color: Colors.white)),
-          // trailing: Icon(
-          //   Icons.add,
-          //   color: Colors.white,
-          // ),
           onTap: () {
-            // Navigator.of(context).pop();
-            // Scaffold.of(context).showSnackBar(new SnackBar(
-            //   content: new Text("you click me "),
-            //   duration: new Duration(seconds: 4),
-            // ));
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Adduser()));
           },
         ),
-        //Text(""),
         ListTile(
-          //tileColor: Colors.red.shade700,
           title: nameuser == null
               ? Text("Connexion",
                   style: TextStyle(
@@ -86,10 +69,6 @@ class _MydrawerState extends State<Mydrawer> {
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                       color: Colors.black)),
-          // trailing: Icon(
-          //   Icons.outbox,
-          //   color: Colors.white,
-          // ),
           onTap: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Accueil()));

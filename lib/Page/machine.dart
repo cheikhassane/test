@@ -1,8 +1,5 @@
-//import 'dart:io';
-
 import 'package:dakar_cafe_express/Page/accesoire.dart';
 import 'package:dakar_cafe_express/Page/accueil.dart';
-//import 'package:dakar_cafe_express/Page/bg.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
@@ -461,8 +458,6 @@ class _MachineState extends State<Machine> {
                           Expanded(
                             child: Container(
                               height: 300,
-                              //width: 400,
-                              //color: Theme.of(context).primaryColor,
                               child: FutureBuilder(
                                   future: getProduct(),
                                   builder: (context, snapshot) {
