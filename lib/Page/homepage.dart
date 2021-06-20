@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           fontSize: 20.0,
                           color: Colors.white),
                     ),
-                    image: Image(image: AssetImage("assets/logoa1.png")),
+                    image: Image(image: AssetImage("assets/logoD.png")),
                     loaderColor: Colors.white,
                   )
                 : contraints.maxWidth > 1000
@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               fontSize: 20.0,
                               color: Colors.white),
                         ),
-                        image: Image(image: AssetImage("assets/logoa.png")),
+                        image: Image(image: AssetImage("assets/logoD.png")),
                         loaderColor: Colors.white,
                       )
                     : new SplashScreen(
@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: Colors.white),
                         ),
                         image: Image(
-                          image: AssetImage("assets/logoa.png"),
+                          image: AssetImage("assets/logoD.png"),
                         ),
                         //backgroundColor: Background(Color: Colors.white,),
                         loaderColor: Colors.white,
