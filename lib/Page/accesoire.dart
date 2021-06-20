@@ -47,8 +47,6 @@ class _AccessoireState extends State<Accessoire> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-    print(size);
     return MaterialApp(
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,

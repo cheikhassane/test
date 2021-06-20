@@ -48,8 +48,6 @@ class _MachineState extends State<Machine> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-    print(size);
     return MaterialApp(
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,

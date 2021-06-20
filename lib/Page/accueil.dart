@@ -19,7 +19,7 @@ class Accueil extends StatefulWidget {
   final String idp;
   final String token;
   final String category;
-  //final String nameuser;
+
   Accueil({
     this.userid,
     this.logoP,
@@ -29,7 +29,6 @@ class Accueil extends StatefulWidget {
     this.idp,
     this.token,
     this.category,
-    //this.nameuser
   });
 
   @override
@@ -52,9 +51,6 @@ class _AccueilState extends State<Accueil> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-    print(size);
-
     return MaterialApp(
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
@@ -87,9 +83,7 @@ class _AccueilState extends State<Accueil> {
                         child: Image(
                           image: AssetImage("assets/accueil.jpeg"),
                           fit: BoxFit.cover,
-                         
                         ),
-                        
                       ),
                       Container(
                         height: 100,
@@ -281,7 +275,6 @@ class _AccueilState extends State<Accueil> {
                                               style: TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 12,
-                                                
                                               ),
                                             ),
                                             trailing: Text(
@@ -319,22 +312,16 @@ class _AccueilState extends State<Accueil> {
                     ? Column(
                         children: [
                           Container(
-                            
                             height: 350,
                             width: MediaQuery.of(context).size.width,
-                            
-
                             child: Image(
                               image: AssetImage("assets/accueil.jpeg"),
                               fit: BoxFit.cover,
-                              
                             ),
-                          
                           ),
                           Container(
                             height: 100,
                             color: Colors.red.shade700,
-                            
                             child: Center(
                               child: Column(
                                 children: [
@@ -352,9 +339,7 @@ class _AccueilState extends State<Accueil> {
                                     style: TextStyle(
                                         fontSize: 12, color: Colors.white),
                                   ),
-                                  Spacer(
-                                      
-                                      ),
+                                  Spacer(),
                                   Text(
                                     "Appeler au 772471414",
                                     style: TextStyle(
@@ -456,7 +441,6 @@ class _AccueilState extends State<Accueil> {
                           Expanded(
                             child: Container(
                               height: 300,
-                              
                               child: FutureBuilder(
                                   future: getProduct(),
                                   builder: (context, snapshot) {
@@ -507,7 +491,6 @@ class _AccueilState extends State<Accueil> {
                                                               )));
                                                 },
                                                 leading: Image(
-                                                 
                                                   image: NetworkImage(
                                                       "${snapshot.data[index]["image"]}"),
                                                   fit: BoxFit.cover,
@@ -523,12 +506,10 @@ class _AccueilState extends State<Accueil> {
                                                           FontWeight.bold),
                                                 ),
                                                 subtitle: Text(
-                                                
                                                   "${snapshot.data[index]["description"]}",
                                                   style: TextStyle(
                                                     color: Colors.black,
                                                     fontSize: 12,
-                                                   
                                                   ),
                                                 ),
                                                 trailing: Text(
@@ -567,24 +548,18 @@ class _AccueilState extends State<Accueil> {
                         children: [
                           Expanded(
                             child: Container(
-                              
                               height: 350,
                               width: 270,
-
                               child: Image(
                                 image: AssetImage("assets/accueil.jpeg"),
                                 fit: BoxFit.cover,
-                               
                               ),
-                             
                             ),
                           ),
                           Container(
                             height: 400,
                             color: Colors.red.shade900,
-                            
                             child: Column(
-                         
                               verticalDirection: VerticalDirection.up,
                               children: [
                                 Spacer(),
@@ -663,7 +638,6 @@ class _AccueilState extends State<Accueil> {
                                     ),
                                   ])),
                                 ),
-                                
                               ],
                             ),
                           ),
@@ -672,9 +646,7 @@ class _AccueilState extends State<Accueil> {
                             children: [
                               Expanded(
                                 child: Container(
-                                 
                                   width: 450,
-                               
                                   child: FutureBuilder(
                                       future: getProduct(),
                                       builder: (context, snapshot) {
@@ -730,7 +702,6 @@ class _AccueilState extends State<Accueil> {
                                                                       )));
                                                     },
                                                     leading: Image(
-                                                  
                                                       image: NetworkImage(
                                                           "${snapshot.data[index]["image"]}"),
                                                       fit: BoxFit.cover,
@@ -746,12 +717,10 @@ class _AccueilState extends State<Accueil> {
                                                               FontWeight.bold),
                                                     ),
                                                     subtitle: Text(
-                                                      
                                                       "${snapshot.data[index]["description"]}",
                                                       style: TextStyle(
                                                         color: Colors.black,
                                                         fontSize: 12,
-                                                        
                                                       ),
                                                     ),
                                                     trailing: Text(

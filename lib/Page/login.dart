@@ -103,10 +103,6 @@ class _LoginState extends State<Login> {
       displayDialog(context, "Vérifier votre saisie",
           "Nom utilisateur ou mot de passe incorrect");
     }
-    // setState(() {
-
-    //   level = datauser[0]['level'];
-    // });
 
     return datauser;
   }
