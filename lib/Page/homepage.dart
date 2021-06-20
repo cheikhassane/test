@@ -38,9 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
             return contraints.maxWidth < 450 && contraints.maxWidth < 1200
                 ? new SplashScreen(
                     gradientBackground: LinearGradient(colors: [
+                      Colors.red.shade800,
                       Colors.red.shade700,
-                      Colors.red.shade500,
-                      Colors.red.shade300
+                      Colors.red.shade600,
                     ]),
                     photoSize: 200.0,
                     seconds: 7,
@@ -52,15 +52,15 @@ class _MyHomePageState extends State<MyHomePage> {
                           fontSize: 20.0,
                           color: Colors.white),
                     ),
-                    image: Image(image: AssetImage("assets/logoa.png")),
+                    image: Image(image: AssetImage("assets/logoa1.png")),
                     loaderColor: Colors.white,
                   )
                 : contraints.maxWidth > 1000
                     ? new SplashScreen(
                         gradientBackground: LinearGradient(colors: [
+                          Colors.red.shade800,
                           Colors.red.shade700,
-                          Colors.red.shade500,
-                          Colors.red.shade300
+                          Colors.red.shade600,
                         ]),
                         photoSize: 200.0,
                         seconds: 7,
@@ -77,11 +77,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       )
                     : new SplashScreen(
                         gradientBackground: LinearGradient(colors: [
+                          Colors.red.shade800,
                           Colors.red.shade700,
-                          Colors.red.shade500,
-                          Colors.red.shade300
+                          Colors.red.shade600,
                         ]),
-                        photoSize: 100.0,
+                        photoSize: 80.0,
                         seconds: 7,
                         navigateAfterSeconds: new Accueil(),
                         title: new Text(
@@ -91,7 +91,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               fontSize: 15.0,
                               color: Colors.white),
                         ),
-                        image: Image(image: AssetImage("assets/logoa.png")),
+                        image: Image(
+                          image: AssetImage("assets/logoa.png"),
+                        ),
                         //backgroundColor: Background(Color: Colors.white,),
                         loaderColor: Colors.white,
                       );

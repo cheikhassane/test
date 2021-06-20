@@ -59,7 +59,7 @@ class _AccessoireState extends State<Accessoire> {
           backgroundColor: Colors.black87,
           actions: [
             Image(
-              image: AssetImage("assets/logoa.png"),
+              image: AssetImage("assets/logoa1.png"),
             ),
           ],
         ),

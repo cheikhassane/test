@@ -24,7 +24,7 @@ class _MydrawerState extends State<Mydrawer> {
           currentAccountPicture: new CircleAvatar(
             backgroundColor: Colors.transparent,
             child: Image(
-              image: AssetImage("assets/logoa.png"),
+              image: AssetImage("assets/logoa1.png"),
               fit: BoxFit.cover,
               height: 100,
               width: 100,

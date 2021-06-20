@@ -62,7 +62,7 @@ class _MachineState extends State<Machine> {
           backgroundColor: Colors.black87,
           actions: [
             Image(
-              image: AssetImage("assets/logoa.png"),
+              image: AssetImage("assets/logoa1.png"),
             ),
           ],
         ),

@@ -140,7 +140,7 @@ class _LoginState extends State<Login> {
               ),
 
               Image(
-                image: AssetImage("assets/logoa.png"),
+                image: AssetImage("assets/logoa1.png"),
                 height: 200,
                 width: 200,
               ),

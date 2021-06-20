@@ -93,7 +93,7 @@ class _DetailcmdState extends State<Detailcmd> {
           ),
         ),
         centerTitle: true,
-        actions: [Image(image: AssetImage("assets/logoa.png"))],
+        actions: [Image(image: AssetImage("assets/logoa1.png"))],
       ),
       body: new SafeArea(
         child: LayoutBuilder(

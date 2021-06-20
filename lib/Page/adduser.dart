@@ -152,7 +152,7 @@ class _AdduserState extends State<Adduser> {
           backgroundColor: Colors.black87,
           actions: [
             Image(
-              image: AssetImage("assets/logoa.png"),
+              image: AssetImage("assets/logoa1.png"),
               height: 80,
               width: 80,
             ),
