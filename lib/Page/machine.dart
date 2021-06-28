@@ -121,7 +121,7 @@ class _MachineState extends State<Machine> {
                         ),
                       ),
                       Container(
-                        height: 90,
+                        height: 100,
                         color: Colors.red.shade900,
                         //color: Colors.deepOrange[900],
                         child: Row(
@@ -150,7 +150,7 @@ class _MachineState extends State<Machine> {
                                   style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                      color: Colors.white60),
                                 ),
                               ])),
                             ),
@@ -172,6 +172,13 @@ class _MachineState extends State<Machine> {
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
+                              ),
+                              Text(
+                                "------------",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold),
                               ),
                             ])),
                             Spacer(
@@ -199,7 +206,7 @@ class _MachineState extends State<Machine> {
                                   style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                      color: Colors.white60),
                                 ),
                               ])),
                             ),
@@ -367,7 +374,7 @@ class _MachineState extends State<Machine> {
                             ),
                           ),
                           Container(
-                            height: 90,
+                            height: 100,
                             color: Colors.red.shade900,
                             //color: Colors.deepOrange[900],
                             child: Row(
@@ -396,7 +403,7 @@ class _MachineState extends State<Machine> {
                                       style: TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.white),
+                                          color: Colors.white60),
                                     ),
                                   ])),
                                 ),
@@ -418,6 +425,13 @@ class _MachineState extends State<Machine> {
                                         fontSize: 15,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white),
+                                  ),
+                                  Text(
+                                    "------------",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ])),
                                 Spacer(
@@ -445,7 +459,7 @@ class _MachineState extends State<Machine> {
                                       style: TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.white),
+                                          color: Colors.white60),
                                     ),
                                   ])),
                                 ),
@@ -610,7 +624,7 @@ class _MachineState extends State<Machine> {
                                       style: TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.white),
+                                          color: Colors.white60),
                                     ),
                                   ])),
                                 ),
@@ -632,6 +646,13 @@ class _MachineState extends State<Machine> {
                                         fontSize: 15,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white),
+                                  ),
+                                  Text(
+                                    "------------",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ])),
                                 Spacer(
@@ -659,7 +680,7 @@ class _MachineState extends State<Machine> {
                                       style: TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.white),
+                                          color: Colors.white60),
                                     ),
                                   ])),
                                 ),

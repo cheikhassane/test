@@ -95,8 +95,16 @@ class _AdduserState extends State<Adduser> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: size.height * 0.15,
+                height: 50,
               ),
+              Image(
+                image: AssetImage("assets/logoa1.png"),
+                height: 200,
+                width: 200,
+              ),
+              // SizedBox(
+              //   height: size.height * 0.15,
+              // ),
               Center(
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),

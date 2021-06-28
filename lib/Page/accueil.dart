@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:dakar_cafe_express/Page/accesoire.dart';
 import 'package:dakar_cafe_express/Page/machine.dart';
 import 'package:dakar_cafe_express/Page/mydrawer.dart';
@@ -7,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
-
 import 'detailcmd.dart';
 
 class Accueil extends StatefulWidget {
@@ -40,6 +38,83 @@ class _AccueilState extends State<Accueil> {
       "https://dakarcafeexpress.com/dcx/public/index.php/products";
 
   List data = [];
+
+  Widget _capsule() {
+    return Container(
+        child: Column(children: [
+      Image(
+        image: AssetImage("assets/Capsule.png"),
+        height: 60,
+        width: 60,
+      ),
+      Text(
+        "Capsules",
+        style: TextStyle(
+            fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white),
+      ),
+      Text(
+        "------------",
+        style: TextStyle(
+            color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
+      ),
+    ]));
+  }
+
+  Widget _machine() {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Machine(
+                      userid: widget.userid,
+                      token: widget.token,
+                    )));
+      },
+      child: Container(
+          child: Column(children: [
+        Image(
+          image: AssetImage(
+            "assets/machine.png",
+          ),
+          height: 60,
+          width: 60,
+        ),
+        Text(
+          "Machines",
+          style: TextStyle(
+              fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white60),
+        ),
+      ])),
+    );
+  }
+
+  Widget _accessoire() {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Accessoire(
+                      userid: widget.userid,
+                      token: widget.token,
+                    )));
+      },
+      child: Container(
+          child: Column(children: [
+        Image(
+          image: AssetImage("assets/tasse.png"),
+          height: 60,
+          width: 60,
+        ),
+        Text(
+          "Accessoires",
+          style: TextStyle(
+              fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white60),
+        ),
+      ])),
+    );
+  }
 
   Future<dynamic> getProduct() async {
     http.Response response = await http
@@ -121,87 +196,21 @@ class _AccueilState extends State<Accueil> {
                         ),
                       ),
                       Container(
-                        height: 90,
+                        height: 100,
                         color: Colors.red.shade900,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Spacer(),
-                            Container(
-                                child: Column(children: [
-                              Image(
-                                image: AssetImage("assets/Capsule.png"),
-                                height: 60,
-                                width: 60,
-                              ),
-                              Text(
-                                "Capsules",
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
-                              ),
-                            ])),
+                            _capsule(),
                             Spacer(
                               flex: 3,
                             ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Machine(
-                                              userid: widget.userid,
-                                              token: widget.token,
-                                            )));
-                              },
-                              child: Container(
-                                  child: Column(children: [
-                                Image(
-                                  image: AssetImage(
-                                    "assets/machine.png",
-                                  ),
-                                  height: 60,
-                                  width: 60,
-                                ),
-                                Text(
-                                  "Machines",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                              ])),
-                            ),
+                            _machine(),
                             Spacer(
                               flex: 3,
                             ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Accessoire(
-                                              userid: widget.userid,
-                                              token: widget.token,
-                                            )));
-                              },
-                              child: Container(
-                                  child: Column(children: [
-                                Image(
-                                  image: AssetImage("assets/tasse.png"),
-                                  height: 60,
-                                  width: 60,
-                                ),
-                                Text(
-                                  "Accessoires",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                              ])),
-                            ),
+                            _accessoire(),
                             Spacer(),
                           ],
                         ),
@@ -353,87 +362,21 @@ class _AccueilState extends State<Accueil> {
                             ),
                           ),
                           Container(
-                            height: 90,
+                            height: 100,
                             color: Colors.red.shade900,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Spacer(),
-                                Container(
-                                    child: Column(children: [
-                                  Image(
-                                    image: AssetImage("assets/Capsule.png"),
-                                    height: 60,
-                                    width: 60,
-                                  ),
-                                  Text(
-                                    "Capsules",
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white),
-                                  ),
-                                ])),
+                                _capsule(),
                                 Spacer(
                                   flex: 3,
                                 ),
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Machine(
-                                                  userid: widget.userid,
-                                                  token: widget.token,
-                                                )));
-                                  },
-                                  child: Container(
-                                      child: Column(children: [
-                                    Image(
-                                      image: AssetImage(
-                                        "assets/machine.png",
-                                      ),
-                                      height: 60,
-                                      width: 60,
-                                    ),
-                                    Text(
-                                      "Machines",
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ),
-                                  ])),
-                                ),
+                                _machine(),
                                 Spacer(
                                   flex: 3,
                                 ),
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Accessoire(
-                                                  userid: widget.userid,
-                                                  token: widget.token,
-                                                )));
-                                  },
-                                  child: Container(
-                                      child: Column(children: [
-                                    Image(
-                                      image: AssetImage("assets/tasse.png"),
-                                      height: 60,
-                                      width: 60,
-                                    ),
-                                    Text(
-                                      "Accessoires",
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ),
-                                  ])),
-                                ),
+                                _accessoire(),
                                 Spacer(),
                               ],
                             ),
@@ -563,81 +506,15 @@ class _AccueilState extends State<Accueil> {
                               verticalDirection: VerticalDirection.up,
                               children: [
                                 Spacer(),
-                                Container(
-                                    child: Column(children: [
-                                  Image(
-                                    image: AssetImage("assets/Capsule.png"),
-                                    height: 60,
-                                    width: 60,
-                                  ),
-                                  Text(
-                                    "Capsules",
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white),
-                                  ),
-                                ])),
+                                _capsule(),
                                 Spacer(
                                   flex: 3,
                                 ),
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Machine(
-                                                  userid: widget.userid,
-                                                  token: widget.token,
-                                                )));
-                                  },
-                                  child: Container(
-                                      child: Column(children: [
-                                    Image(
-                                      image: AssetImage(
-                                        "assets/machine.png",
-                                      ),
-                                      height: 60,
-                                      width: 60,
-                                    ),
-                                    Text(
-                                      "Machines",
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ),
-                                  ])),
-                                ),
+                                _machine(),
                                 Spacer(
                                   flex: 3,
                                 ),
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Accessoire(
-                                                  userid: widget.userid,
-                                                  token: widget.token,
-                                                )));
-                                  },
-                                  child: Container(
-                                      child: Column(children: [
-                                    Image(
-                                      image: AssetImage("assets/tasse.png"),
-                                      height: 60,
-                                      width: 60,
-                                    ),
-                                    Text(
-                                      "Accessoires",
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ),
-                                  ])),
-                                ),
+                                _accessoire(),
                               ],
                             ),
                           ),
