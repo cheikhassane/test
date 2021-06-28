@@ -23,7 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ? new SplashScreen(
                     gradientBackground: LinearGradient(colors: [
                       Colors.red.shade900,
-                      Colors.red.shade600,
+                      Colors.red.shade500,
                       Colors.red.shade800
                     ]),
                     photoSize: 200.0,
